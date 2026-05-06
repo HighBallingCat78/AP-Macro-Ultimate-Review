@@ -946,91 +946,786 @@
   <div class="section-header">
     <div class="section-num" style="color:var(--graphs)">📊</div>
     <div>
-      <div class="section-title" style="color:var(--graphs)">Key Graphs Reference Guide</div>
-      <div style="font-size:13px;color:var(--muted)">Every graph you must be able to draw, label, shift, and interpret on the AP exam</div>
+      <div class="section-title" style="color:var(--graphs)">Key Graphs — Visual Reference with Shifts</div>
+      <div style="font-size:13px;color:var(--muted)">Every graph drawn with real examples of shifts. Study these until you can reproduce them from memory.</div>
     </div>
     <div class="section-tag" style="color:var(--graphs);border-color:var(--graphs);background:var(--graphs-dim)">GRAPHS</div>
   </div>
 
-  <div class="graph-grid">
-    <div class="graph-card">
-      <div class="graph-name">Production Possibilities Curve (PPC)</div>
-      <div class="graph-type">Unit 1 · Scarcity & Trade-offs</div>
-      <div class="graph-body">
-        <strong>Axes:</strong> Good A (y-axis) vs. Good B (x-axis)<br>
-        <strong>Shape:</strong> Concave (bowed out) — law of increasing opportunity cost<br>
-        <strong>What to show:</strong> Points on curve (efficient), inside (inefficient), outside (unattainable)<br>
-        <strong>Outward shift:</strong> Economic growth — more resources or better technology<br>
-        <strong>One-sided shift:</strong> Technology improves in one sector only
+  <!-- ── GRAPH WRAPPER STYLES ── -->
+  <style>
+    .graph-block { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:28px; }
+    .graph-block-title { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:0.05em; margin-bottom:4px; }
+    .graph-block-sub { font-size:13px; color:var(--muted); margin-bottom:20px; }
+    .graph-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
+    .graph-panel { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:16px; }
+    .graph-panel-title { font-weight:700; font-size:13px; margin-bottom:4px; }
+    .graph-panel-desc { font-size:12px; color:var(--muted); margin-bottom:12px; line-height:1.5; }
+    .graph-panel svg { display:block; width:100%; height:auto; }
+    .shifter-list { margin-top:14px; padding:12px 16px; background:rgba(255,255,255,0.03); border-radius:8px; }
+    .shifter-list p { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:6px; }
+    .shifter-list ul { padding-left:16px; }
+    .shifter-list li { font-size:12.5px; color:var(--muted); margin-bottom:3px; }
+    .shifter-list li strong { color:var(--text); }
+    @media(max-width:700px){ .graph-row { grid-template-columns:1fr; } }
+  </style>
+
+  <!-- ══ 1. PPC ══ -->
+  <div class="graph-block">
+    <div class="graph-block-title" style="color:var(--u1)">① Production Possibilities Curve (PPC)</div>
+    <div class="graph-block-sub">Unit 1 · Shows the maximum combinations of two goods an economy can produce · Bowed-out shape = law of increasing opportunity cost</div>
+    <div class="graph-row">
+
+      <!-- PPC Baseline -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:var(--u1)">Baseline PPC — Points & Efficiency</div>
+        <div class="graph-panel-desc">Points on curve = efficient. Inside = inefficient. Outside = unattainable.</div>
+        <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="220" fill="#0d0f14"/>
+          <!-- axes -->
+          <line x1="40" y1="10" x2="40" y2="185" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="185" x2="240" y2="185" stroke="#444" stroke-width="1.5"/>
+          <!-- axis labels -->
+          <text x="130" y="210" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Good B (Consumer Goods)</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Good A (Capital)</text>
+          <!-- PPC curve (concave) -->
+          <path d="M 40 30 Q 130 60 220 185" stroke="#4f9cf9" stroke-width="2.5" fill="none"/>
+          <!-- Point ON curve -->
+          <circle cx="130" cy="62" r="5" fill="#34d399"/>
+          <text x="138" y="58" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">Efficient (A)</text>
+          <!-- Point INSIDE -->
+          <circle cx="110" cy="110" r="5" fill="#fbbf24"/>
+          <text x="118" y="106" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">Inefficient (B)</text>
+          <!-- Point OUTSIDE -->
+          <circle cx="175" cy="55" r="5" fill="#fb7185"/>
+          <text x="183" y="51" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif">Unattainable (C)</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Key Points</p>
+          <ul>
+            <li><strong>On curve:</strong> Fully efficient — all resources used</li>
+            <li><strong>Inside curve:</strong> Recession or unemployment</li>
+            <li><strong>Outside curve:</strong> Not currently possible</li>
+            <li><strong>Slope:</strong> Opportunity cost of Good B in terms of Good A</li>
+          </ul>
+        </div>
       </div>
-      <span class="graph-tag">MUST DRAW</span>
-    </div>
-    <div class="graph-card">
-      <div class="graph-name">Aggregate Demand – Aggregate Supply (AD-AS)</div>
-      <div class="graph-type">Unit 3 · National Income</div>
-      <div class="graph-body">
-        <strong>Axes:</strong> Price Level (y) vs. Real GDP (x)<br>
-        <strong>Curves:</strong> AD (downward sloping), SRAS (upward sloping), LRAS (vertical at Q*)<br>
-        <strong>Recessionary gap:</strong> Equilibrium left of LRAS; show AD or SRAS shift right to fix<br>
-        <strong>Inflationary gap:</strong> Equilibrium right of LRAS; show AD or SRAS shift left to fix<br>
-        <strong>Supply shock:</strong> SRAS shifts left → stagflation (↑ PL, ↓ GDP)
+
+      <!-- PPC Outward Shift -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:var(--u4)">Outward Shift → Economic Growth</div>
+        <div class="graph-panel-desc">New PPC₁ lies outside original PPC₀. More of both goods now attainable.</div>
+        <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="220" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="185" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="185" x2="240" y2="185" stroke="#444" stroke-width="1.5"/>
+          <text x="130" y="210" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Good B</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Good A</text>
+          <!-- Original PPC -->
+          <path d="M 40 40 Q 120 65 205 185" stroke="#4f9cf9" stroke-width="2" fill="none" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="120" y="78" fill="#4f9cf9" font-size="10" font-family="DM Sans,sans-serif" opacity="0.7">PPC₀</text>
+          <!-- New PPC (shifted out) -->
+          <path d="M 40 18 Q 145 48 235 185" stroke="#34d399" stroke-width="2.5" fill="none"/>
+          <text x="150" y="60" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">PPC₁</text>
+          <!-- Arrow showing shift -->
+          <path d="M 140 75 L 160 52" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+          <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+          <text x="155" y="88" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">Shift out</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Causes of Outward Shift</p>
+          <ul>
+            <li><strong>↑ Resources:</strong> More labor, capital, land</li>
+            <li><strong>↑ Technology:</strong> Better production methods</li>
+            <li><strong>↑ Human capital:</strong> Better education/training</li>
+            <li><strong>↑ Investment:</strong> More capital accumulation</li>
+          </ul>
+        </div>
       </div>
-      <span class="graph-tag">MOST TESTED</span>
-    </div>
-    <div class="graph-card">
-      <div class="graph-name">Money Market</div>
-      <div class="graph-type">Unit 4 · Financial Sector</div>
-      <div class="graph-body">
-        <strong>Axes:</strong> Nominal Interest Rate (y) vs. Quantity of Money (x)<br>
-        <strong>Ms:</strong> Vertical (Fed controls supply)<br>
-        <strong>Md:</strong> Downward sloping (inverse with interest rate)<br>
-        <strong>Fed buys bonds:</strong> Ms → right → interest rate falls<br>
-        <strong>Fed sells bonds:</strong> Ms → left → interest rate rises<br>
-        <strong>↑ GDP/price level:</strong> Md → right → interest rate rises
+
+      <!-- PPC One-Sided Shift -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:var(--u6)">One-Sided Shift → Tech in One Sector</div>
+        <div class="graph-panel-desc">Technology improves only for Good B → curve rotates outward on B-axis only.</div>
+        <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="220" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="185" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="185" x2="240" y2="185" stroke="#444" stroke-width="1.5"/>
+          <text x="130" y="210" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Good B</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Good A</text>
+          <!-- Original PPC -->
+          <path d="M 40 40 Q 120 65 205 185" stroke="#4f9cf9" stroke-width="2" fill="none" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="105" y="78" fill="#4f9cf9" font-size="10" font-family="DM Sans,sans-serif" opacity="0.7">PPC₀</text>
+          <!-- One-sided (only x-axis endpoint moves) -->
+          <path d="M 40 40 Q 150 80 238 185" stroke="#fb923c" stroke-width="2.5" fill="none"/>
+          <text x="155" y="95" fill="#fb923c" font-size="10" font-family="DM Sans,sans-serif">PPC₁</text>
+          <!-- Arrow on x-axis end -->
+          <path d="M 207 183 L 237 183" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr2)" fill="none"/>
+          <defs><marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+          <text x="185" y="175" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">B-axis only</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Key Insight</p>
+          <ul>
+            <li><strong>Max Good A unchanged</strong> (y-intercept stays)</li>
+            <li><strong>Max Good B increases</strong> (x-intercept moves right)</li>
+            <li>Curve pivots, not parallel shift</li>
+            <li><strong>Example:</strong> Technology improves only in agriculture</li>
+          </ul>
+        </div>
       </div>
-      <span class="graph-tag">MUST DRAW</span>
-    </div>
-    <div class="graph-card">
-      <div class="graph-name">Loanable Funds Market</div>
-      <div class="graph-type">Unit 4 · Financial Sector</div>
-      <div class="graph-body">
-        <strong>Axes:</strong> Real Interest Rate (y) vs. Quantity of Loanable Funds (x)<br>
-        <strong>Supply:</strong> Upward sloping (savings)<br>
-        <strong>Demand:</strong> Downward sloping (investment borrowing)<br>
-        <strong>Gov't deficit → D shifts right → ↑ real interest rate → crowding out</strong><br>
-        <strong>↑ Savings → S shifts right → ↓ real interest rate → ↑ investment</strong>
-      </div>
-      <span class="graph-tag">MUST DRAW</span>
-    </div>
-    <div class="graph-card">
-      <div class="graph-name">Phillips Curve (Short-Run & Long-Run)</div>
-      <div class="graph-type">Unit 3 · AD-AS Connection</div>
-      <div class="graph-body">
-        <strong>Axes:</strong> Inflation Rate (y) vs. Unemployment Rate (x)<br>
-        <strong>SRPC:</strong> Downward sloping — trade-off between inflation and unemployment<br>
-        <strong>LRPC:</strong> Vertical at NRU — no trade-off in long run<br>
-        <strong>Expansionary policy:</strong> Move up/left along SRPC<br>
-        <strong>Cost-push shock:</strong> SRPC shifts right (stagflation)
-      </div>
-      <span class="graph-tag">HIGH FREQUENCY</span>
-    </div>
-    <div class="graph-card">
-      <div class="graph-name">Foreign Exchange Market (FOREX)</div>
-      <div class="graph-type">Unit 6 · Open Economy</div>
-      <div class="graph-body">
-        <strong>Axes:</strong> Exchange Rate (y, e.g. $ per €) vs. Quantity of Currency (x)<br>
-        <strong>Demand:</strong> Downward sloping — lower exchange rate → cheaper currency → more demanded<br>
-        <strong>Supply:</strong> Upward sloping<br>
-        <strong>↑ U.S. interest rates → ↑ demand for USD → USD appreciates</strong><br>
-        <strong>↑ U.S. inflation → ↓ demand for USD → USD depreciates</strong>
-      </div>
-      <span class="graph-tag">MUST DRAW</span>
     </div>
   </div>
 
-  <div class="accent-box" style="background:#1a1a0a;border-color:var(--graphs);margin-top:24px">
-    <div class="box-title" style="color:var(--graphs)">🎯 Graph Labeling Checklist (FRQ Points)</div>
-    <p>Always label: ✅ Both axes with full names ✅ All curves with letters/names (AD, SRAS, LRAS, MS, MD) ✅ Equilibrium point(s) with P* and Q* (or r*, e*) ✅ Direction of shifts with arrows ✅ New equilibrium labeled differently (P₁, Q₁) ✅ Any gap clearly identified. Missing labels = missing points.</p>
+  <!-- ══ 2. AD-AS ══ -->
+  <div class="graph-block">
+    <div class="graph-block-title" style="color:var(--u3)">② AD-AS Model — The Most Tested Graph</div>
+    <div class="graph-block-sub">Unit 3 · Axes: Price Level (y) vs. Real GDP (x) · Three curves: AD, SRAS, LRAS · Most FRQ points come from here</div>
+    <div class="graph-row">
+
+      <!-- AD-AS Baseline / Full Employment -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:var(--u3)">Baseline — Full Employment</div>
+        <div class="graph-panel-desc">AD intersects SRAS exactly at LRAS. Economy at potential GDP (Q*).</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Real GDP</text>
+          <text x="14" y="105" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,105)">Price Level</text>
+          <!-- LRAS vertical -->
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="159" y="22" fill="#f472b6" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">LRAS</text>
+          <text x="148" y="210" fill="#f472b6" font-size="10" font-family="DM Sans,sans-serif">Q*</text>
+          <!-- SRAS upward sloping -->
+          <path d="M 50 175 Q 130 130 220 60" stroke="#fbbf24" stroke-width="2" fill="none"/>
+          <text x="222" y="57" fill="#fbbf24" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRAS</text>
+          <!-- AD downward sloping -->
+          <path d="M 60 50 Q 140 120 230 185" stroke="#4f9cf9" stroke-width="2" fill="none"/>
+          <text x="232" y="183" fill="#4f9cf9" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">AD</text>
+          <!-- Equilibrium dot -->
+          <circle cx="155" cy="115" r="5" fill="#34d399"/>
+          <text x="160" y="112" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">E* (P*, Q*)</text>
+          <!-- P* dashed line -->
+          <line x1="40" y1="115" x2="155" y2="115" stroke="#34d399" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+          <text x="28" y="118" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">P*</text>
+        </svg>
+        <div class="shifter-list">
+          <p>This Is Your Starting Point</p>
+          <ul>
+            <li>All three curves intersect at one point</li>
+            <li>No gap exists — economy is healthy</li>
+            <li><strong>Always draw this first</strong>, then apply the shock</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AD-AS Recessionary Gap — AD shifts left -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#fb7185">Recessionary Gap — AD Shifts Left</div>
+        <div class="graph-panel-desc">↓ Consumer confidence, ↑ taxes, ↓ gov't spending → AD shifts left → output falls below Q*.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Real GDP</text>
+          <text x="14" y="105" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,105)">Price Level</text>
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="158" y="22" fill="#f472b6" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">LRAS</text>
+          <text x="148" y="210" fill="#f472b6" font-size="10" font-family="DM Sans,sans-serif">Q*</text>
+          <path d="M 50 175 Q 130 130 220 60" stroke="#fbbf24" stroke-width="2" fill="none"/>
+          <text x="222" y="57" fill="#fbbf24" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRAS</text>
+          <!-- Original AD (faded) -->
+          <path d="M 60 50 Q 140 120 230 185" stroke="#4f9cf9" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="232" y="183" fill="#4f9cf9" font-size="10" font-family="DM Sans,sans-serif" opacity="0.5">AD₀</text>
+          <!-- New AD shifted left -->
+          <path d="M 42 65 Q 115 135 205 192" stroke="#4f9cf9" stroke-width="2.5" fill="none"/>
+          <text x="205" y="192" fill="#4f9cf9" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">AD₁</text>
+          <!-- New equilibrium -->
+          <circle cx="118" cy="135" r="5" fill="#fb7185"/>
+          <text x="122" y="131" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif">E₁</text>
+          <!-- Gap bracket -->
+          <line x1="118" y1="180" x2="155" y2="180" stroke="#fb7185" stroke-width="1.5"/>
+          <line x1="118" y1="174" x2="118" y2="186" stroke="#fb7185" stroke-width="1.5"/>
+          <line x1="155" y1="174" x2="155" y2="186" stroke="#fb7185" stroke-width="1.5"/>
+          <text x="127" y="175" fill="#fb7185" font-size="9" font-family="DM Sans,sans-serif">Rec. Gap</text>
+          <!-- Shift arrow -->
+          <path d="M 175 125 L 148 135" stroke="#ff6b6b" stroke-width="1.5" fill="none" marker-end="url(#arrf)"/>
+          <defs><marker id="arrf" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#ff6b6b"/></marker></defs>
+        </svg>
+        <div class="shifter-list">
+          <p>AD Shifts LEFT when:</p>
+          <ul>
+            <li><strong>↓ Consumer confidence/wealth</strong></li>
+            <li><strong>↑ Taxes</strong> (less disposable income)</li>
+            <li><strong>↓ Government spending</strong></li>
+            <li><strong>↑ Interest rates</strong> (Fed sells bonds)</li>
+            <li><strong>↓ Net exports</strong> (↑ exchange rate)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AD-AS Inflationary Gap -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#fbbf24">Inflationary Gap — AD Shifts Right</div>
+        <div class="graph-panel-desc">↑ Gov't spending, ↓ taxes, ↑ consumer confidence → AD shifts right → output exceeds Q*.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Real GDP</text>
+          <text x="14" y="105" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,105)">Price Level</text>
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="158" y="22" fill="#f472b6" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">LRAS</text>
+          <text x="148" y="210" fill="#f472b6" font-size="10" font-family="DM Sans,sans-serif">Q*</text>
+          <path d="M 50 175 Q 130 130 220 60" stroke="#fbbf24" stroke-width="2" fill="none"/>
+          <text x="222" y="57" fill="#fbbf24" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRAS</text>
+          <!-- Original AD (faded) -->
+          <path d="M 60 50 Q 140 120 230 185" stroke="#4f9cf9" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="90" y="52" fill="#4f9cf9" font-size="10" font-family="DM Sans,sans-serif" opacity="0.5">AD₀</text>
+          <!-- New AD shifted right -->
+          <path d="M 80 35 Q 168 105 245 178" stroke="#4f9cf9" stroke-width="2.5" fill="none"/>
+          <text x="236" y="168" fill="#4f9cf9" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">AD₁</text>
+          <!-- New equilibrium -->
+          <circle cx="193" cy="97" r="5" fill="#fbbf24"/>
+          <text x="197" y="93" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">E₁</text>
+          <!-- Gap bracket -->
+          <line x1="155" y1="182" x2="193" y2="182" stroke="#fbbf24" stroke-width="1.5"/>
+          <line x1="155" y1="176" x2="155" y2="188" stroke="#fbbf24" stroke-width="1.5"/>
+          <line x1="193" y1="176" x2="193" y2="188" stroke="#fbbf24" stroke-width="1.5"/>
+          <text x="158" y="177" fill="#fbbf24" font-size="9" font-family="DM Sans,sans-serif">Inf. Gap</text>
+        </svg>
+        <div class="shifter-list">
+          <p>AD Shifts RIGHT when:</p>
+          <ul>
+            <li><strong>↑ Gov't spending</strong> (fiscal stimulus)</li>
+            <li><strong>↓ Taxes</strong> → ↑ disposable income</li>
+            <li><strong>↑ Consumer/business confidence</strong></li>
+            <li><strong>↓ Interest rates</strong> (Fed buys bonds)</li>
+            <li><strong>↑ Net exports</strong> (↓ exchange rate)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SRAS Negative Supply Shock (Stagflation) -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#f97316">Negative Supply Shock — Stagflation</div>
+        <div class="graph-panel-desc">Oil price spike, natural disaster → SRAS shifts LEFT → ↑ prices + ↓ GDP simultaneously.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Real GDP</text>
+          <text x="14" y="105" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,105)">Price Level</text>
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="158" y="22" fill="#f472b6" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">LRAS</text>
+          <!-- AD -->
+          <path d="M 60 50 Q 140 120 230 185" stroke="#4f9cf9" stroke-width="2" fill="none"/>
+          <text x="232" y="183" fill="#4f9cf9" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">AD</text>
+          <!-- Original SRAS (faded) -->
+          <path d="M 50 175 Q 130 130 220 60" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="218" y="57" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif" opacity="0.5">SRAS₀</text>
+          <!-- New SRAS shifted left -->
+          <path d="M 42 150 Q 108 108 188 42" stroke="#f97316" stroke-width="2.5" fill="none"/>
+          <text x="188" y="39" fill="#f97316" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRAS₁</text>
+          <!-- New equilibrium (higher P, lower Q) -->
+          <circle cx="114" cy="108" r="5" fill="#f97316"/>
+          <text x="118" y="104" fill="#f97316" font-size="10" font-family="DM Sans,sans-serif">E₁ (stagflation)</text>
+          <!-- ↑P arrow -->
+          <path d="M 46" y1="155" d="M 46 132 L 46 115" stroke="#f97316" stroke-width="1.5" fill="none"/>
+          <text x="45" y="145" fill="#f97316" font-size="10" font-family="DM Sans,sans-serif">↑P</text>
+          <!-- ↓Q arrow -->
+          <text x="108" y="190" fill="#f97316" font-size="10" font-family="DM Sans,sans-serif">↓Q</text>
+        </svg>
+        <div class="shifter-list">
+          <p>SRAS Shifts LEFT when:</p>
+          <ul>
+            <li><strong>↑ Input costs:</strong> Oil, wages, raw materials</li>
+            <li><strong>Supply shock:</strong> Natural disasters, crop failures</li>
+            <li><strong>Result:</strong> STAGFLATION — the worst of both worlds</li>
+            <li><strong>No easy fix:</strong> Expansionary cures ↓Q but worsens ↑P</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LRAS Shift / Long-Run Growth -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#f472b6">LRAS Shift Right — Long-Run Growth</div>
+        <div class="graph-panel-desc">Better tech, more capital, improved institutions → LRAS shifts right → potential GDP increases.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Real GDP</text>
+          <text x="14" y="105" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,105)">Price Level</text>
+          <!-- LRAS original -->
+          <line x1="140" y1="15" x2="140" y2="195" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.5"/>
+          <text x="133" y="22" fill="#f472b6" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">LRAS₀</text>
+          <text x="132" y="210" fill="#f472b6" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">Q₀*</text>
+          <!-- LRAS new -->
+          <line x1="185" y1="15" x2="185" y2="195" stroke="#f472b6" stroke-width="2.5"/>
+          <text x="188" y="22" fill="#f472b6" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">LRAS₁</text>
+          <text x="178" y="210" fill="#f472b6" font-size="9" font-family="DM Sans,sans-serif">Q₁*</text>
+          <!-- SRAS also shifts right -->
+          <path d="M 50 175 Q 140 130 230 55" stroke="#fbbf24" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <path d="M 75 185 Q 175 135 248 52" stroke="#fbbf24" stroke-width="2" fill="none"/>
+          <text x="240" y="50" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">SRAS₁</text>
+          <!-- AD -->
+          <path d="M 60 50 Q 140 120 230 185" stroke="#4f9cf9" stroke-width="2" fill="none"/>
+          <text x="232" y="183" fill="#4f9cf9" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">AD</text>
+          <!-- Arrow showing LRAS shift -->
+          <path d="M 145 80 L 180 80" stroke="#34d399" stroke-width="2" fill="none" marker-end="url(#arr3)"/>
+          <defs><marker id="arr3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#34d399"/></marker></defs>
+        </svg>
+        <div class="shifter-list">
+          <p>LRAS Shifts RIGHT (Growth) from:</p>
+          <ul>
+            <li><strong>↑ Technology:</strong> R&D, innovation</li>
+            <li><strong>↑ Physical capital:</strong> Investment, infrastructure</li>
+            <li><strong>↑ Human capital:</strong> Education, training</li>
+            <li><strong>↑ Labor force:</strong> Population growth, immigration</li>
+            <li><strong>Better institutions:</strong> Property rights, rule of law</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end graph-row -->
+  </div><!-- end graph-block AD-AS -->
+
+  <!-- ══ 3. MONEY MARKET ══ -->
+  <div class="graph-block">
+    <div class="graph-block-title" style="color:var(--u4)">③ Money Market</div>
+    <div class="graph-block-sub">Unit 4 · Axes: Nominal Interest Rate (y) vs. Quantity of Money (x) · Ms is VERTICAL — Fed controls it · Md slopes down</div>
+    <div class="graph-row">
+
+      <!-- Money Market: Fed Buys Bonds (Expansionary) -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#34d399">Fed Buys Bonds → Ms Shifts Right → ↓ Interest Rate</div>
+        <div class="graph-panel-desc">Expansionary monetary policy. Money supply increases → nominal interest rate falls.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of Money</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Nominal Interest Rate</text>
+          <!-- Md downward -->
+          <path d="M 60 40 Q 140 110 230 175" stroke="#a78bfa" stroke-width="2" fill="none"/>
+          <text x="232" y="173" fill="#a78bfa" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">Md</text>
+          <!-- Ms original vertical (faded) -->
+          <line x1="135" y1="20" x2="135" y2="193" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="130" y="17" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">Ms₀</text>
+          <!-- Ms new vertical (shifted right) -->
+          <line x1="175" y1="20" x2="175" y2="193" stroke="#34d399" stroke-width="2.5"/>
+          <text x="170" y="17" fill="#34d399" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">Ms₁</text>
+          <!-- Old equilibrium -->
+          <circle cx="135" cy="107" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="107" x2="135" y2="107" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="28" y="110" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">r₀</text>
+          <!-- New equilibrium -->
+          <circle cx="175" cy="128" r="5" fill="#34d399"/>
+          <line x1="40" y1="128" x2="175" y2="128" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="28" y="131" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">r₁↓</text>
+          <!-- Arrow -->
+          <path d="M 142 60 L 168 60" stroke="#fbbf24" stroke-width="1.5" fill="none" marker-end="url(#arr4)"/>
+          <defs><marker id="arr4" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+        </svg>
+        <div class="shifter-list">
+          <p>Expansionary Monetary Policy</p>
+          <ul>
+            <li><strong>Fed buys Treasury bonds</strong></li>
+            <li>↑ Bank reserves → ↑ Ms</li>
+            <li>↓ Nominal interest rate</li>
+            <li>→ ↑ Investment → AD shifts right</li>
+            <li><strong>Also:</strong> ↓ Discount rate, ↓ Reserve requirement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Money Market: Fed Sells Bonds (Contractionary) -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#fb7185">Fed Sells Bonds → Ms Shifts Left → ↑ Interest Rate</div>
+        <div class="graph-panel-desc">Contractionary monetary policy. Money supply decreases → nominal interest rate rises.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of Money</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Nominal Interest Rate</text>
+          <path d="M 60 40 Q 140 110 230 175" stroke="#a78bfa" stroke-width="2" fill="none"/>
+          <text x="232" y="173" fill="#a78bfa" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">Md</text>
+          <!-- Ms original (faded) -->
+          <line x1="175" y1="20" x2="175" y2="193" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="170" y="17" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">Ms₀</text>
+          <!-- Ms new (shifted left) -->
+          <line x1="130" y1="20" x2="130" y2="193" stroke="#fb7185" stroke-width="2.5"/>
+          <text x="125" y="17" fill="#fb7185" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">Ms₁</text>
+          <!-- Old eq -->
+          <circle cx="175" cy="128" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="128" x2="175" y2="128" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="28" y="131" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">r₀</text>
+          <!-- New eq (higher r) -->
+          <circle cx="130" cy="107" r="5" fill="#fb7185"/>
+          <line x1="40" y1="107" x2="130" y2="107" stroke="#fb7185" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="28" y="110" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif">r₁↑</text>
+          <!-- Arrow left -->
+          <path d="M 168 60 L 140 60" stroke="#fbbf24" stroke-width="1.5" fill="none" marker-end="url(#arr5)"/>
+          <defs><marker id="arr5" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+        </svg>
+        <div class="shifter-list">
+          <p>Contractionary Monetary Policy</p>
+          <ul>
+            <li><strong>Fed sells Treasury bonds</strong></li>
+            <li>↓ Bank reserves → ↓ Ms</li>
+            <li>↑ Nominal interest rate</li>
+            <li>→ ↓ Investment → AD shifts left</li>
+            <li><strong>Also:</strong> ↑ Discount rate, ↑ Reserve requirement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Money Market: Md Shifts Right (↑ GDP) -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#a78bfa">↑ GDP or ↑ Price Level → Md Shifts Right</div>
+        <div class="graph-panel-desc">Higher income or prices → more transactions needed → demand for money rises → interest rate rises.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of Money</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Nominal Interest Rate</text>
+          <!-- Ms fixed vertical -->
+          <line x1="155" y1="20" x2="155" y2="193" stroke="#34d399" stroke-width="2.5"/>
+          <text x="150" y="17" fill="#34d399" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">Ms</text>
+          <!-- Md original (faded) -->
+          <path d="M 55 45 Q 135 115 225 178" stroke="#a78bfa" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="225" y="176" fill="#a78bfa" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">Md₀</text>
+          <!-- Md new (shifted right) -->
+          <path d="M 78 35 Q 162 103 245 168" stroke="#a78bfa" stroke-width="2.5" fill="none"/>
+          <text x="240" y="163" fill="#a78bfa" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">Md₁</text>
+          <!-- Old eq -->
+          <circle cx="155" cy="127" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="127" x2="155" y2="127" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="28" y="130" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">r₀</text>
+          <!-- New eq (higher r) -->
+          <circle cx="155" cy="103" r="5" fill="#a78bfa"/>
+          <line x1="40" y1="103" x2="155" y2="103" stroke="#a78bfa" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="28" y="106" fill="#a78bfa" font-size="10" font-family="DM Sans,sans-serif">r₁↑</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Md Shifts RIGHT when:</p>
+          <ul>
+            <li><strong>↑ Real GDP</strong> (more transactions)</li>
+            <li><strong>↑ Price level</strong> (same goods cost more)</li>
+            <li>Both cause: ↑ nominal interest rate</li>
+            <li>Ms unchanged — Fed didn't act</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 4. LOANABLE FUNDS ══ -->
+  <div class="graph-block">
+    <div class="graph-block-title" style="color:#34d399">④ Loanable Funds Market</div>
+    <div class="graph-block-sub">Unit 4 · Axes: Real Interest Rate (y) vs. Quantity of Loanable Funds (x) · Supply = Saving · Demand = Investment borrowing</div>
+    <div class="graph-row">
+
+      <!-- LF: Gov't Deficit / Crowding Out -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#fb7185">↑ Gov't Deficit → D Shifts Right → Crowding Out</div>
+        <div class="graph-panel-desc">Government borrows more → competes with private borrowers → real interest rate rises → private investment falls.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of Loanable Funds</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Real Interest Rate</text>
+          <!-- Supply (upward sloping) -->
+          <path d="M 55 175 Q 135 110 215 45" stroke="#34d399" stroke-width="2.5" fill="none"/>
+          <text x="217" y="42" fill="#34d399" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">S</text>
+          <!-- Demand original (faded) -->
+          <path d="M 60 45 Q 140 115 220 178" stroke="#fb7185" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="222" y="176" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">D₀</text>
+          <!-- Demand shifted right -->
+          <path d="M 88 38 Q 165 107 238 172" stroke="#fb7185" stroke-width="2.5" fill="none"/>
+          <text x="236" y="168" fill="#fb7185" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">D₁</text>
+          <!-- Old eq -->
+          <circle cx="138" cy="113" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="113" x2="138" y2="113" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="27" y="116" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">r₀</text>
+          <!-- New eq -->
+          <circle cx="163" cy="90" r="5" fill="#fb7185"/>
+          <line x1="40" y1="90" x2="163" y2="90" stroke="#fb7185" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="27" y="93" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif">r₁↑</text>
+          <text x="80" y="68" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">Crowding Out!</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Demand Shifts RIGHT when:</p>
+          <ul>
+            <li><strong>↑ Gov't deficit</strong> → gov't borrows more</li>
+            <li><strong>↑ Business investment demand</strong></li>
+            <li>Result: ↑ real interest rate → ↓ private investment</li>
+            <li><strong>Crowding out</strong> = fiscal policy partially offset</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LF: Savings Increase -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#34d399">↑ Savings → S Shifts Right → ↓ Real Interest Rate</div>
+        <div class="graph-panel-desc">More saving → more funds available → real rate falls → private investment rises.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of Loanable Funds</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Real Interest Rate</text>
+          <!-- Demand downward -->
+          <path d="M 60 45 Q 140 115 220 178" stroke="#a78bfa" stroke-width="2" fill="none"/>
+          <text x="222" y="176" fill="#a78bfa" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">D</text>
+          <!-- Supply original (faded) -->
+          <path d="M 55 175 Q 135 110 215 45" stroke="#34d399" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="216" y="42" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">S₀</text>
+          <!-- Supply shifted right -->
+          <path d="M 82 182 Q 162 115 238 48" stroke="#34d399" stroke-width="2.5" fill="none"/>
+          <text x="236" y="45" fill="#34d399" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">S₁</text>
+          <!-- Old eq -->
+          <circle cx="138" cy="113" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="113" x2="138" y2="113" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="27" y="116" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">r₀</text>
+          <!-- New eq (lower r, higher Q) -->
+          <circle cx="170" cy="132" r="5" fill="#34d399"/>
+          <line x1="40" y1="132" x2="170" y2="132" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="27" y="135" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">r₁↓</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Supply Shifts RIGHT when:</p>
+          <ul>
+            <li><strong>↑ Household saving rate</strong></li>
+            <li><strong>↑ Foreign capital inflows</strong></li>
+            <li><strong>Gov't budget surplus</strong></li>
+            <li>Result: ↓ real interest rate → ↑ investment</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 5. PHILLIPS CURVE ══ -->
+  <div class="graph-block">
+    <div class="graph-block-title" style="color:#f97316">⑤ Phillips Curve (SRPC & LRPC)</div>
+    <div class="graph-block-sub">Unit 3 · Axes: Inflation Rate (y) vs. Unemployment Rate (x) · SRPC slopes down · LRPC is vertical at NRU · MIRRORS the AD-AS model</div>
+    <div class="graph-row">
+
+      <!-- Phillips Curve Baseline -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#f97316">Baseline SRPC + LRPC</div>
+        <div class="graph-panel-desc">Short-run trade-off: move along SRPC. Long-run: always return to NRU on LRPC.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Unemployment Rate</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Inflation Rate</text>
+          <!-- LRPC vertical at NRU -->
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3"/>
+          <text x="158" y="22" fill="#f472b6" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">LRPC</text>
+          <text x="145" y="210" fill="#f472b6" font-size="9" font-family="DM Sans,sans-serif">NRU</text>
+          <!-- SRPC downward sloping -->
+          <path d="M 65 45 Q 145 115 230 175" stroke="#f97316" stroke-width="2.5" fill="none"/>
+          <text x="232" y="173" fill="#f97316" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRPC</text>
+          <!-- Equilibrium on LRPC -->
+          <circle cx="155" cy="115" r="5" fill="#34d399"/>
+          <text x="160" y="111" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">E* (LR eq.)</text>
+          <!-- π target line -->
+          <line x1="40" y1="115" x2="155" y2="115" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+          <text x="42" y="110" fill="#34d399" font-size="9" font-family="DM Sans,sans-serif">π*</text>
+          <!-- Axis tick labels -->
+          <text x="150" y="208" fill="#f472b6" font-size="8" font-family="DM Sans,sans-serif">4–5%</text>
+        </svg>
+        <div class="shifter-list">
+          <p>The Big Picture</p>
+          <ul>
+            <li><strong>SRPC:</strong> Trade-off in the short run only</li>
+            <li><strong>LRPC:</strong> Vertical — no trade-off long run</li>
+            <li>Long run: Economy always returns to NRU</li>
+            <li>NRU ≈ 4–5% in U.S.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phillips Curve: Expansionary Policy -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#34d399">Expansionary Policy → Move Up-Left Along SRPC</div>
+        <div class="graph-panel-desc">Gov't stimulus or Fed buys bonds → ↑ AD → ↓ unemployment, ↑ inflation. Move up and left along curve.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Unemployment Rate</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Inflation Rate</text>
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3" opacity="0.5"/>
+          <text x="158" y="22" fill="#f472b6" font-size="10" font-family="DM Sans,sans-serif" opacity="0.7">LRPC</text>
+          <path d="M 65 45 Q 145 115 230 175" stroke="#f97316" stroke-width="2.5" fill="none"/>
+          <text x="232" y="173" fill="#f97316" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRPC</text>
+          <!-- Original point (high unemployment, low inflation) -->
+          <circle cx="190" cy="148" r="5" fill="#8891a8"/>
+          <text x="194" y="144" fill="#8891a8" font-size="10" font-family="DM Sans,sans-serif">A (recession)</text>
+          <!-- New point (lower unemployment, higher inflation) -->
+          <circle cx="118" cy="90" r="5" fill="#34d399"/>
+          <text x="90" y="84" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">B (after stimulus)</text>
+          <!-- Arrow along curve -->
+          <path d="M 183 143 Q 155 122 126 97" stroke="#fbbf24" stroke-width="1.5" fill="none" marker-end="url(#arr6)" stroke-dasharray="3,2"/>
+          <defs><marker id="arr6" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+          <text x="138" y="128" fill="#fbbf24" font-size="9" font-family="DM Sans,sans-serif">Move along</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Movement Along SRPC</p>
+          <ul>
+            <li>Expansionary: move <strong>up-left</strong> (↓U, ↑π)</li>
+            <li>Contractionary: move <strong>down-right</strong> (↑U, ↓π)</li>
+            <li>This is a <strong>movement along</strong>, not a shift</li>
+            <li>Short run only — long run returns to LRPC</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phillips Curve: Supply Shock / SRPC Shifts Right -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#fb7185">Supply Shock → SRPC Shifts RIGHT (Stagflation)</div>
+        <div class="graph-panel-desc">Oil price spike → SRAS shifts left → SRPC shifts RIGHT → both inflation and unemployment rise simultaneously.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Unemployment Rate</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Inflation Rate</text>
+          <line x1="155" y1="15" x2="155" y2="195" stroke="#f472b6" stroke-width="2" stroke-dasharray="6,3" opacity="0.5"/>
+          <text x="158" y="22" fill="#f472b6" font-size="10" font-family="DM Sans,sans-serif" opacity="0.7">LRPC</text>
+          <!-- SRPC original -->
+          <path d="M 55 42 Q 135 112 220 170" stroke="#f97316" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="221" y="167" fill="#f97316" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">SRPC₀</text>
+          <!-- SRPC shifted right -->
+          <path d="M 88 32 Q 168 102 245 162" stroke="#fb7185" stroke-width="2.5" fill="none"/>
+          <text x="240" y="157" fill="#fb7185" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">SRPC₁</text>
+          <!-- Original equilibrium -->
+          <circle cx="155" cy="113" r="4" fill="#8891a8" opacity="0.5"/>
+          <!-- New equilibrium (higher both) -->
+          <circle cx="193" cy="105" r="5" fill="#fb7185"/>
+          <text x="197" y="101" fill="#fb7185" font-size="10" font-family="DM Sans,sans-serif">Stagflation!</text>
+          <!-- Shift arrow -->
+          <path d="M 148 75 L 175 65" stroke="#fbbf24" stroke-width="1.5" fill="none" marker-end="url(#arr7)"/>
+          <defs><marker id="arr7" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#fbbf24"/></marker></defs>
+        </svg>
+        <div class="shifter-list">
+          <p>SRPC Shifts RIGHT when:</p>
+          <ul>
+            <li><strong>Negative supply shock</strong> (oil, disasters)</li>
+            <li><strong>↑ Inflation expectations</strong></li>
+            <li>Result: ↑ unemployment AND ↑ inflation</li>
+            <li>This is STAGFLATION — no easy cure</li>
+            <li>SRPC shifts LEFT with positive supply shocks</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 6. FOREX ══ -->
+  <div class="graph-block">
+    <div class="graph-block-title" style="color:var(--u6)">⑥ Foreign Exchange Market (FOREX)</div>
+    <div class="graph-block-sub">Unit 6 · Axes: Exchange Rate — value of USD (y) vs. Quantity of USD (x) · D slopes down · S slopes up</div>
+    <div class="graph-row">
+
+      <!-- FOREX: ↑ Interest Rates → USD Appreciates -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#34d399">↑ U.S. Interest Rates → Demand for USD ↑ → Appreciates</div>
+        <div class="graph-panel-desc">Higher U.S. rates → foreigners want U.S. assets → buy USD → demand shifts right → USD appreciates.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of USD</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Exchange Rate ($/foreign)</text>
+          <!-- Supply upward -->
+          <path d="M 55 175 Q 135 110 215 45" stroke="#fb923c" stroke-width="2" fill="none"/>
+          <text x="217" y="42" fill="#fb923c" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">S</text>
+          <!-- Demand original (faded) -->
+          <path d="M 60 45 Q 140 115 220 178" stroke="#34d399" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="222" y="176" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">D₀</text>
+          <!-- Demand shifted right -->
+          <path d="M 88 38 Q 165 108 238 172" stroke="#34d399" stroke-width="2.5" fill="none"/>
+          <text x="236" y="168" fill="#34d399" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">D₁</text>
+          <!-- Old eq -->
+          <circle cx="138" cy="113" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="113" x2="138" y2="113" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="25" y="116" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">e₀</text>
+          <!-- New eq -->
+          <circle cx="163" cy="88" r="5" fill="#34d399"/>
+          <line x1="40" y1="88" x2="163" y2="88" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="25" y="91" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif">e₁↑</text>
+          <text x="75" y="65" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">USD Appreciates!</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Demand for USD Shifts RIGHT when:</p>
+          <ul>
+            <li><strong>↑ U.S. interest rates</strong></li>
+            <li><strong>↑ U.S. economic growth</strong></li>
+            <li><strong>↑ Foreign demand for U.S. goods</strong></li>
+            <li>Result: USD appreciates → ↓ exports, ↑ imports</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FOREX: Expansionary MP → USD Depreciates -->
+      <div class="graph-panel">
+        <div class="graph-panel-title" style="color:#fb923c">Expansionary Monetary Policy → USD Depreciates</div>
+        <div class="graph-panel-desc">Fed buys bonds → ↓ interest rates → less attractive to foreigners → demand for USD falls → depreciates.</div>
+        <svg viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="270" height="230" fill="#0d0f14"/>
+          <line x1="40" y1="10" x2="40" y2="195" stroke="#444" stroke-width="1.5"/>
+          <line x1="40" y1="195" x2="250" y2="195" stroke="#444" stroke-width="1.5"/>
+          <text x="145" y="216" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif">Quantity of USD</text>
+          <text x="14" y="100" text-anchor="middle" fill="#8891a8" font-size="11" font-family="DM Sans,sans-serif" transform="rotate(-90,14,100)">Exchange Rate ($/foreign)</text>
+          <!-- Supply -->
+          <path d="M 55 175 Q 135 110 215 45" stroke="#fb923c" stroke-width="2" fill="none"/>
+          <text x="217" y="42" fill="#fb923c" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">S</text>
+          <!-- Demand original -->
+          <path d="M 88 38 Q 165 108 238 172" stroke="#34d399" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.4"/>
+          <text x="236" y="168" fill="#34d399" font-size="10" font-family="DM Sans,sans-serif" opacity="0.6">D₀</text>
+          <!-- Demand shifted left -->
+          <path d="M 58 45 Q 138 115 215 178" stroke="#34d399" stroke-width="2.5" fill="none"/>
+          <text x="215" y="176" fill="#34d399" font-size="11" font-family="DM Sans,sans-serif" font-weight="bold">D₁</text>
+          <!-- Old eq -->
+          <circle cx="163" cy="88" r="4" fill="#8891a8" opacity="0.5"/>
+          <line x1="40" y1="88" x2="163" y2="88" stroke="#8891a8" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="25" y="91" fill="#8891a8" font-size="9" font-family="DM Sans,sans-serif" opacity="0.6">e₀</text>
+          <!-- New eq (lower e) -->
+          <circle cx="138" cy="113" r="5" fill="#fb923c"/>
+          <line x1="40" y1="113" x2="138" y2="113" stroke="#fb923c" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="25" y="116" fill="#fb923c" font-size="10" font-family="DM Sans,sans-serif">e₁↓</text>
+          <text x="55" y="150" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">USD Depreciates!</text>
+          <text x="55" y="163" fill="#fbbf24" font-size="10" font-family="DM Sans,sans-serif">→ ↑ Exports</text>
+        </svg>
+        <div class="shifter-list">
+          <p>Demand for USD Shifts LEFT when:</p>
+          <ul>
+            <li><strong>↓ U.S. interest rates</strong> (expansionary MP)</li>
+            <li><strong>↑ U.S. inflation</strong> (goods less competitive)</li>
+            <li>Result: USD depreciates → ↑ exports, ↓ imports</li>
+            <li>→ ↑ Net exports → AD shifts further right</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="accent-box" style="background:#1a1a0a;border-color:var(--graphs);margin-top:8px">
+    <div class="box-title" style="color:var(--graphs)">🎯 Graph Labeling Checklist — Every Point Counts</div>
+    <p>✅ Both axes labeled with full names &nbsp;✅ All curves labeled (AD, SRAS, LRAS, Ms, Md, S, D) &nbsp;✅ Equilibrium: P*, Q* or r*, e* &nbsp;✅ Dashed lines from equilibrium to both axes &nbsp;✅ New equilibrium: P₁, Q₁ (different subscripts) &nbsp;✅ Arrows showing direction of shift &nbsp;✅ Any gap labeled "Recessionary Gap" or "Inflationary Gap" &nbsp;✅ Original curves not erased — shown dashed</p>
   </div>
 </div>
 
@@ -1258,7 +1953,7 @@
     <div class="tip-card">
       <div class="tip-icon">⏱️</div>
       <div class="tip-title">MCQ Time Management</div>
-      <div class="tip-body">60 questions in 70 minutes = 70 seconds per question. Skip and flag anything taking more than 90 seconds. Return to flagged questions after finishing. Never leave a bubble blank — no penalty for guessing on AP exams.</div>
+      <div class="tip-body">70 questions in 70 minutes = 1 minute per question. Skip and flag anything taking more than 90 seconds. Return to flagged questions after finishing. Never leave a bubble blank — no penalty for guessing on AP exams.</div>
     </div>
     <div class="tip-card">
       <div class="tip-icon">📊</div>
