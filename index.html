@@ -242,21 +242,22 @@
 
   /* ── BIG TABLE ── */
   .tbl-wrap { overflow-x: auto; margin-bottom: 24px; border-radius: 12px; border: 1px solid var(--border); max-width: 100%; -webkit-overflow-scrolling: touch; }
-  table { width: 100%; min-width: 400px; border-collapse: collapse; font-size: 13.5px; }
+  table { width: 100%; min-width: 320px; border-collapse: collapse; font-size: 13px; }
   thead { background: var(--surface); }
   thead th {
-    padding: 14px 16px;
+    padding: 11px 12px;
     text-align: left;
     font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.08em;
+    font-size: 11px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--muted);
     border-bottom: 1px solid var(--border);
+    white-space: nowrap;
   }
   tbody tr { border-bottom: 1px solid var(--border); }
   tbody tr:last-child { border-bottom: none; }
-  tbody td { padding: 13px 16px; vertical-align: top; }
+  tbody td { padding: 11px 12px; vertical-align: top; font-size: 13px; }
   tbody tr:hover td { background: rgba(255,255,255,0.02); }
 
   /* ── GRAPH CARDS ── */
@@ -1008,11 +1009,11 @@
 
   <!-- ── GRAPH WRAPPER STYLES ── -->
   <style>
-    .graph-block { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:28px; }
+    .graph-block { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:28px; overflow:hidden; min-width:0; }
     .graph-block-title { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:0.05em; margin-bottom:4px; }
     .graph-block-sub { font-size:13px; color:var(--muted); margin-bottom:20px; }
-    .graph-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
-    .graph-panel { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:16px; }
+    .graph-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; min-width:0; }
+    .graph-panel { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:16px; min-width:0; overflow:hidden; }
     .graph-panel-title { font-weight:700; font-size:13px; margin-bottom:4px; }
     .graph-panel-desc { font-size:12px; color:var(--muted); margin-bottom:12px; line-height:1.5; }
     .graph-panel svg { display:block; width:100%; height:auto; }
@@ -2347,11 +2348,11 @@
     .sim-fopt:hover:not(:disabled) { border-color:#a3e635; }
     .sim-fopt.correct { background:#0d2e14; border-color:#a3e635; color:#a3e635; }
     .sim-fopt.wrong { background:#2a1010; border-color:#f87171; color:#f87171; }
-    .sim-state-display { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:14px; font-size:13px; line-height:1.8; }
-    .sim-state-row { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--border); }
+    .sim-state-display { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:14px; font-size:12px; line-height:1.8; min-width:0; overflow:hidden; }
+    .sim-state-row { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--border); gap:8px; min-width:0; }
     .sim-state-row:last-child { border-bottom:none; }
-    .sim-state-key { color:var(--muted); }
-    .sim-state-val { font-weight:700; }
+    .sim-state-key { color:var(--muted); min-width:0; flex-shrink:1; }
+    .sim-state-val { font-weight:700; text-align:right; min-width:0; flex-shrink:0; font-size:11px; }
     .sim-state-val.up { color:#34d399; }
     .sim-state-val.down { color:#f87171; }
     .sim-state-val.neutral { color:var(--text); }
@@ -2576,7 +2577,7 @@
     .chain-sel-btn { padding:9px 16px; border-radius:9px; border:1.5px solid var(--border); font-size:13px; font-weight:600; cursor:pointer; background:var(--bg); color:var(--muted); font-family:'DM Sans',sans-serif; transition:all 0.15s; }
     .chain-sel-btn:hover { border-color:#fb923c; color:var(--text); }
     .chain-sel-btn.active { border-color:#fb923c; background:rgba(251,146,60,0.1); color:#fb923c; }
-    .chain-wrap { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; }
+    .chain-wrap { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; overflow:hidden; min-width:0; }
     .chain-title { font-weight:700; font-size:17px; margin-bottom:6px; color:#fb923c; }
     .chain-scenario { font-size:13.5px; color:var(--muted); margin-bottom:24px; line-height:1.65; }
     .chain-steps-display { display:flex; flex-direction:column; gap:0; }
@@ -2766,9 +2767,9 @@
   </div>
 
   <style>
-    .bank-layout { display:grid; grid-template-columns:300px 1fr; gap:24px; min-width:0; }
+    .bank-layout { display:grid; grid-template-columns:280px 1fr; gap:20px; min-width:0; }
     @media(max-width:900px) { .bank-layout { grid-template-columns:1fr; } }
-    .bank-controls { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; }
+    .bank-controls { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; min-width:0; overflow:hidden; }
     .bank-slider-group { margin-bottom:22px; }
     .bank-slider-label { font-size:13px; font-weight:600; margin-bottom:6px; display:flex; justify-content:space-between; }
     .bank-slider-val { color:#34d399; font-family:'DM Mono',monospace; }
@@ -2776,26 +2777,28 @@
     .bank-preset-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
     .bank-preset { padding:5px 12px; border-radius:6px; border:1px solid var(--border); font-size:11px; font-weight:600; cursor:pointer; background:var(--bg); color:var(--muted); font-family:'DM Sans',sans-serif; }
     .bank-preset:hover { border-color:#34d399; color:#34d399; }
-    .bank-right { display:flex; flex-direction:column; gap:16px; }
-    .taccount { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; }
-    .taccount-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.05em; margin-bottom:4px; }
+    .bank-right { display:flex; flex-direction:column; gap:16px; min-width:0; overflow:hidden; }
+    .taccount { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; min-width:0; overflow:hidden; }
+    .taccount-title { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:0.05em; margin-bottom:4px; }
     .taccount-sub { font-size:12px; color:var(--muted); margin-bottom:16px; }
-    .taccount-table { width:100%; border-collapse:collapse; }
-    .taccount-table th { font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); padding:8px 14px; border-bottom:2px solid var(--border); text-align:left; }
-    .taccount-table td { padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    .taccount-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .taccount-table { width:100%; min-width:280px; border-collapse:collapse; }
+    .taccount-table th { font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); padding:7px 10px; border-bottom:2px solid var(--border); text-align:left; }
+    .taccount-table td { padding:9px 10px; border-bottom:1px solid var(--border); font-size:13px; }
     .taccount-table tr:last-child td { border-bottom:none; font-weight:700; }
     .taccount-table .asset { color:#4f9cf9; }
     .taccount-table .liability { color:#f472b6; }
     .taccount-divider { width:2px; background:var(--border); }
-    .money-mult-display { background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(79,156,249,0.08)); border:1px solid rgba(52,211,153,0.3); border-radius:14px; padding:24px; text-align:center; }
-    .money-mult-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px; }
-    .money-mult-formula { font-family:'DM Mono',monospace; font-size:15px; color:var(--text); margin-bottom:16px; }
-    .money-mult-val { font-family:'Bebas Neue',sans-serif; font-size:64px; line-height:1; color:#34d399; }
-    .money-mult-sub { font-size:13px; color:var(--muted); margin-top:8px; }
-    .money-created-val { font-family:'Bebas Neue',sans-serif; font-size:36px; color:#fbbf24; }
-    .bank-chain { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; }
-    .bank-chain-title { font-weight:700; font-size:15px; color:#34d399; margin-bottom:14px; }
-    .bank-chain-rows { display:flex; flex-direction:column; gap:0; }
+    .money-mult-display { background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(79,156,249,0.08)); border:1px solid rgba(52,211,153,0.3); border-radius:14px; padding:20px; text-align:center; min-width:0; overflow:hidden; }
+    .money-mult-title { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .money-mult-formula { font-family:'DM Mono',monospace; font-size:14px; color:var(--text); margin-bottom:12px; word-break:break-all; }
+    .money-mult-val { font-family:'Bebas Neue',sans-serif; font-size:56px; line-height:1; color:#34d399; }
+    .money-mult-sub { font-size:12px; color:var(--muted); margin-top:8px; }
+    .money-created-val { font-family:'Bebas Neue',sans-serif; font-size:30px; color:#fbbf24; }
+    .bank-chain { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; min-width:0; overflow:hidden; }
+    .bank-chain-title { font-weight:700; font-size:14px; color:#34d399; margin-bottom:14px; }
+    .bank-chain-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .bank-chain-rows { display:flex; flex-direction:column; gap:0; min-width:340px; }
     .bcr { display:grid; grid-template-columns:20px minmax(0,100px) 1fr 1fr 1fr; gap:6px; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); font-size:12px; overflow:hidden; }
     .bcr:first-child { font-size:11px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.06em; }
     .bcr:last-child { border-bottom:none; }
@@ -2866,7 +2869,7 @@
       <div class="taccount">
         <div class="taccount-title" style="color:#34d399">Bank 1 — T-Account</div>
         <div class="taccount-sub">When you deposit $<span id="ta-dep">1,000</span> with a <span id="ta-rr">10%</span> reserve requirement:</div>
-        <table class="taccount-table">
+        <div class="taccount-wrap"><table class="taccount-table">
           <tr><th style="width:50%">ASSETS</th><th style="width:50%">LIABILITIES</th></tr>
           <tr>
             <td><span class="asset">Required Reserves<br><strong id="ta-req-res">$100</strong></span></td>
@@ -2880,16 +2883,16 @@
             <td><span style="color:var(--text)">Total Assets: <strong id="ta-total-a">$1,000</strong></span></td>
             <td><span style="color:var(--text)">Total Liab.: <strong id="ta-total-l">$1,000</strong></span></td>
           </tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="bank-chain">
         <div class="bank-chain-title">💸 Money Creation Chain (First 6 Banks)</div>
-        <div class="bank-chain-rows" id="bank-chain-rows">
+        <div class="bank-chain-scroll"><div class="bank-chain-rows" id="bank-chain-rows">
           <div class="bcr">
             <span></span><span>Bank</span><span>Deposits</span><span>Reserves</span><span>New Loans</span>
           </div>
-        </div>
+        </div></div>
         <div id="bank-chain-more" style="padding:8px 0;font-size:12px;color:var(--muted);font-style:italic"></div>
       </div>
     </div>
