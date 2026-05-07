@@ -35,7 +35,8 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+  body { overflow-x: hidden; width: 100%; }
 
   body {
     background: var(--bg);
@@ -111,6 +112,8 @@
     margin: 48px auto;
     max-width: 1100px;
     margin-left: 32px; margin-right: 32px;
+    overflow: hidden;
+    min-width: 0;
   }
   .legend-title {
     font-family: 'Bebas Neue', sans-serif;
@@ -155,6 +158,8 @@
     margin: 0 32px 56px;
     max-width: 1100px;
     margin-left: 32px; margin-right: 32px;
+    overflow: hidden;
+    min-width: 0;
   }
   .section-header {
     display: flex; align-items: center; gap: 16px;
@@ -188,9 +193,10 @@
   /* ── CARDS ── */
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 16px;
     margin-bottom: 24px;
+    min-width: 0;
   }
   .card {
     background: var(--surface);
@@ -199,6 +205,7 @@
     padding: 22px;
     position: relative;
     overflow: hidden;
+    min-width: 0;
   }
   .card::before {
     content: '';
@@ -234,8 +241,8 @@
   .accent-box ul { padding-left: 18px; }
 
   /* ── BIG TABLE ── */
-  .tbl-wrap { overflow-x: auto; margin-bottom: 24px; border-radius: 12px; border: 1px solid var(--border); }
-  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .tbl-wrap { overflow-x: auto; margin-bottom: 24px; border-radius: 12px; border: 1px solid var(--border); max-width: 100%; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 400px; border-collapse: collapse; font-size: 13.5px; }
   thead { background: var(--surface); }
   thead th {
     padding: 14px 16px;
@@ -407,7 +414,7 @@
 <div class="hero">
   <div class="hero-eyebrow">AP Macroeconomics · Complete Review</div>
   <h1>ULTIMATE<br>AP MACRO<br>PACKET</h1>
-  <p class="hero-sub">Every unit. Every key graph. FRQ mastery. Monetary & fiscal policy. Exam tips. Color-coded.</p>
+  <p class="hero-sub">Every unit. Every key graph. FRQ mastery. Monetary & fiscal policy. Interactive simulators. Exam tips. Color-coded.</p>
   <div class="badge-row">
     <span class="badge" style="color:var(--u1);border-color:var(--u1);background:var(--u1-dim)">Unit 1: Basic Concepts</span>
     <span class="badge" style="color:var(--u2);border-color:var(--u2);background:var(--u2-dim)">Unit 2: Indicators</span>
@@ -418,6 +425,11 @@
     <span class="badge" style="color:var(--graphs);border-color:var(--graphs);background:var(--graphs-dim)">Key Graphs</span>
     <span class="badge" style="color:var(--frq);border-color:var(--frq);background:var(--frq-dim)">FRQ Mastery</span>
     <span class="badge" style="color:var(--tips);border-color:var(--tips);background:var(--tips-dim)">Exam Tips</span>
+    <span class="badge" style="color:#22d3ee;border-color:#22d3ee;background:rgba(34,211,238,0.1)">⚡ MCQ Bank</span>
+    <span class="badge" style="color:#a3e635;border-color:#a3e635;background:rgba(163,230,53,0.08)">📈 Graph Simulator</span>
+    <span class="badge" style="color:#fb923c;border-color:#fb923c;background:rgba(251,146,60,0.1)">🔗 Cause-Effect Chains</span>
+    <span class="badge" style="color:#e879f9;border-color:#e879f9;background:rgba(232,121,249,0.1)">📊 Data Interpretation</span>
+    <span class="badge" style="color:#34d399;border-color:#34d399;background:rgba(52,211,153,0.1)">🏦 Banking Simulator</span>
   </div>
 </div>
 
@@ -522,6 +534,46 @@
         <div class="legend-pages">Quick-reference for side-by-side topics</div>
       </div>
     </a>
+    <a href="#interactive-mcq" class="legend-item" style="border-color:#22d3ee">
+      <div class="legend-dot" style="background:#22d3ee"></div>
+      <div>
+        <div class="legend-label" style="color:#22d3ee">⚡ Interactive MCQ Bank</div>
+        <div class="legend-desc">40+ AP-style questions with instant explanations, scoring & randomized order</div>
+        <div class="legend-pages">NEW · Interactive</div>
+      </div>
+    </a>
+    <a href="#graph-simulator" class="legend-item" style="border-color:#a3e635">
+      <div class="legend-dot" style="background:#a3e635"></div>
+      <div>
+        <div class="legend-label" style="color:#a3e635">📈 Graph Shift Simulator</div>
+        <div class="legend-desc">Click to shift AD, SRAS, LRAS, Money Market, Loanable Funds & Phillips Curve — see what causes each shift and how the economy returns to long-run equilibrium</div>
+        <div class="legend-pages">NEW · Interactive · Long-Run Self-Correction panels</div>
+      </div>
+    </a>
+    <a href="#cause-effect" class="legend-item" style="border-color:#fb923c">
+      <div class="legend-dot" style="background:#fb923c"></div>
+      <div>
+        <div class="legend-label" style="color:#fb923c">🔗 Cause-and-Effect Chains</div>
+        <div class="legend-desc">Click the next step in monetary/fiscal policy chains — build the logic interactively</div>
+        <div class="legend-pages">NEW · Interactive</div>
+      </div>
+    </a>
+    <a href="#data-interpret" class="legend-item" style="border-color:#e879f9">
+      <div class="legend-dot" style="background:#e879f9"></div>
+      <div>
+        <div class="legend-label" style="color:#e879f9">📊 Data Interpretation Module</div>
+        <div class="legend-desc">Analyze real-style economic data, charts & Fed announcements like on the AP exam</div>
+        <div class="legend-pages">NEW · Interactive</div>
+      </div>
+    </a>
+    <a href="#banking-sim" class="legend-item" style="border-color:#34d399">
+      <div class="legend-dot" style="background:#34d399"></div>
+      <div>
+        <div class="legend-label" style="color:#34d399">🏦 Banking & Money Creation Simulator</div>
+        <div class="legend-desc">Input deposits & reserve ratios — watch T-accounts & money multiplier update live</div>
+        <div class="legend-pages">NEW · Interactive</div>
+      </div>
+    </a>
   </div>
 </div>
 
@@ -566,17 +618,6 @@
         <li><strong>Specialization:</strong> Produce the good in which you have comparative advantage</li>
         <li><strong>Gains from trade:</strong> Both parties benefit by specializing and trading</li>
         <li><strong>Terms of trade:</strong> Must fall between each country's opportunity costs for mutual benefit</li>
-      </ul>
-    </div>
-    <div class="card" style="border-top:3px solid var(--u1)">
-      <div class="card-title" style="color:var(--u1)">🏛 Economic Systems & Circular Flow</div>
-      <ul>
-        <li><strong>Command economy:</strong> Government makes all production decisions</li>
-        <li><strong>Market economy:</strong> Prices and markets coordinate decisions</li>
-        <li><strong>Mixed economy:</strong> Combination of market and government intervention</li>
-        <li><strong>Circular flow:</strong> Households supply resources to firms; firms pay wages/rent/interest/profit</li>
-        <li><strong>Product markets:</strong> Goods and services exchanged between firms and households</li>
-        <li><strong>Factor markets:</strong> Resources (land, labor, capital) exchanged</li>
       </ul>
     </div>
   </div>
@@ -647,6 +688,19 @@
         <li><strong>Leading indicators:</strong> Stock prices, building permits, consumer confidence — predict future</li>
         <li><strong>Lagging indicators:</strong> Unemployment rate, CPI — confirm what already happened</li>
         <li><strong>Output gap:</strong> Actual GDP minus Potential GDP; negative = recessionary gap</li>
+      </ul>
+    </div>
+  </div>
+
+    <div class="card" style="border-top:3px solid var(--u2)">
+      <div class="card-title" style="color:var(--u2)">🏛 Economic Systems & Circular Flow</div>
+      <ul>
+        <li><strong>Command economy:</strong> Government makes all production decisions</li>
+        <li><strong>Market economy:</strong> Prices and markets coordinate decisions</li>
+        <li><strong>Mixed economy:</strong> Combination of market and government intervention</li>
+        <li><strong>Circular flow:</strong> Households supply resources to firms; firms pay wages/rent/interest/profit</li>
+        <li><strong>Product markets:</strong> Goods and services exchanged between firms and households</li>
+        <li><strong>Factor markets:</strong> Resources (land, labor, capital) exchanged</li>
       </ul>
     </div>
   </div>
@@ -2175,13 +2229,1558 @@
 
 <div class="divider"></div>
 
+<!-- ═══════════════════ INTERACTIVE MCQ BANK ═══════════════════ -->
+<div class="section" id="interactive-mcq">
+  <div class="section-header">
+    <div class="section-num" style="color:#22d3ee">⚡</div>
+    <div>
+      <div class="section-title" style="color:#22d3ee">Interactive MCQ Bank</div>
+      <div style="font-size:13px;color:var(--muted)">AP-style questions · Click answers · Instant explanations · Score tracking</div>
+    </div>
+    <div class="section-tag" style="color:#22d3ee;border-color:#22d3ee;background:rgba(34,211,238,0.1)">INTERACTIVE</div>
+  </div>
+
+  <style>
+    .mcq-controls { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; align-items:center; }
+    .mcq-btn { padding:9px 18px; border-radius:8px; border:1px solid; font-size:13px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.15s; }
+    .mcq-btn:hover { transform:translateY(-1px); }
+    .mcq-score-bar { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 22px; display:flex; gap:24px; flex-wrap:wrap; align-items:center; margin-bottom:24px; overflow:hidden; }
+    .mcq-score-val { font-family:'Bebas Neue',sans-serif; font-size:36px; line-height:1; }
+    .mcq-score-lbl { font-size:11px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; }
+    .mcq-progress { flex:1; min-width:120px; }
+    .mcq-progress-bar { height:8px; background:var(--border); border-radius:99px; overflow:hidden; margin-top:6px; }
+    .mcq-progress-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#22d3ee,#34d399); transition:width 0.4s ease; }
+    .mcq-item { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:18px; transition:border-color 0.2s; }
+    .mcq-item.answered { border-color: #333; }
+    .mcq-qnum { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--muted); margin-bottom:8px; }
+    .mcq-qtext { font-size:15px; font-weight:500; line-height:1.65; margin-bottom:18px; }
+    .mcq-choices { display:flex; flex-direction:column; gap:8px; }
+    .mcq-choice { padding:11px 16px; border-radius:9px; border:1.5px solid var(--border); cursor:pointer; font-size:13.5px; transition:all 0.15s; text-align:left; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; }
+    .mcq-choice:hover:not(:disabled) { border-color:#22d3ee; background:rgba(34,211,238,0.06); transform:translateX(3px); }
+    .mcq-choice.correct { background:#0d2e20; border-color:#34d399; color:#34d399; }
+    .mcq-choice.wrong { background:#2a0e0e; border-color:#f87171; color:#f87171; }
+    .mcq-choice.reveal-correct { background:#0a2018; border-color:#34d399; color:#34d399; }
+    .mcq-choice:disabled { cursor:default; transform:none; }
+    .mcq-explain { margin-top:14px; padding:14px 18px; border-radius:10px; background:#061a14; border-left:3px solid #34d399; font-size:13px; color:#86efac; line-height:1.65; display:none; }
+    .mcq-explain.visible { display:block; animation:fadeInUp 0.25s ease; }
+    .mcq-unit-tag { display:inline-block; font-size:10px; padding:2px 8px; border-radius:4px; margin-bottom:10px; font-weight:700; letter-spacing:0.08em; font-family:'DM Mono',monospace; }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .mcq-filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+    .mcq-filter { padding:5px 12px; border-radius:99px; border:1.5px solid var(--border); font-size:12px; font-weight:600; cursor:pointer; background:var(--bg); color:var(--muted); font-family:'DM Sans',sans-serif; transition:all 0.15s; }
+    .mcq-filter.active { color:var(--text); }
+    .mcq-empty { text-align:center; padding:48px; color:var(--muted); font-size:14px; }
+  </style>
+
+  <div class="mcq-score-bar">
+    <div>
+      <div class="mcq-score-val" id="mcq-correct" style="color:#34d399">0</div>
+      <div class="mcq-score-lbl">Correct</div>
+    </div>
+    <div>
+      <div class="mcq-score-val" id="mcq-wrong" style="color:#f87171">0</div>
+      <div class="mcq-score-lbl">Incorrect</div>
+    </div>
+    <div>
+      <div class="mcq-score-val" id="mcq-pct" style="color:#22d3ee">—</div>
+      <div class="mcq-score-lbl">Score</div>
+    </div>
+    <div class="mcq-progress">
+      <div style="font-size:12px;color:var(--muted)">Progress: <span id="mcq-done">0</span> / <span id="mcq-total">0</span></div>
+      <div class="mcq-progress-bar"><div class="mcq-progress-fill" id="mcq-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="mcq-controls">
+    <button class="mcq-btn" onclick="mcqShuffle()" style="color:#22d3ee;border-color:#22d3ee;background:rgba(34,211,238,0.1)">🔀 Shuffle Questions</button>
+    <button class="mcq-btn" onclick="mcqReset()" style="color:#f87171;border-color:#f87171;background:rgba(248,113,113,0.08)">↺ Reset All</button>
+    <button class="mcq-btn" onclick="mcqRevealAll()" style="color:#fbbf24;border-color:#fbbf24;background:rgba(251,191,36,0.08)">👁 Reveal All Answers</button>
+  </div>
+
+  <div class="mcq-filter-row">
+    <span style="font-size:12px;color:var(--muted);align-self:center;margin-right:4px">Filter:</span>
+    <button class="mcq-filter active" data-filter="all" onclick="mcqFilter(this,'all')" style="border-color:#22d3ee;color:#22d3ee;">All Units</button>
+    <button class="mcq-filter" data-filter="1" onclick="mcqFilter(this,'1')" style="">Unit 1</button>
+    <button class="mcq-filter" data-filter="2" onclick="mcqFilter(this,'2')" style="">Unit 2</button>
+    <button class="mcq-filter" data-filter="3" onclick="mcqFilter(this,'3')" style="">Unit 3</button>
+    <button class="mcq-filter" data-filter="4" onclick="mcqFilter(this,'4')" style="">Unit 4</button>
+    <button class="mcq-filter" data-filter="5" onclick="mcqFilter(this,'5')" style="">Unit 5</button>
+    <button class="mcq-filter" data-filter="6" onclick="mcqFilter(this,'6')" style="">Unit 6</button>
+  </div>
+
+  <div id="mcq-container"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ GRAPH SHIFT SIMULATOR ═══════════════════ -->
+<div class="section" id="graph-simulator">
+  <div class="section-header">
+    <div class="section-num" style="color:#a3e635">📈</div>
+    <div>
+      <div class="section-title" style="color:#a3e635">Graph Shift Simulator</div>
+      <div style="font-size:13px;color:var(--muted)">Press buttons to shift curves · Watch graphs animate · Answer follow-up questions</div>
+    </div>
+    <div class="section-tag" style="color:#a3e635;border-color:#a3e635;background:rgba(163,230,53,0.1)">INTERACTIVE</div>
+  </div>
+
+  <style>
+    .sim-tabs { display:flex; gap:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:24px; }
+    .sim-tab { flex:1; padding:12px 10px; text-align:center; font-size:13px; font-weight:600; cursor:pointer; border:none; background:var(--surface); color:var(--muted); font-family:'DM Sans',sans-serif; transition:all 0.15s; border-right:1px solid var(--border); }
+    .sim-tab:last-child { border-right:none; }
+    .sim-tab.active { background:rgba(163,230,53,0.12); color:#a3e635; }
+    .sim-panel { display:none; }
+    .sim-panel.active { display:block; animation:fadeInUp 0.2s ease; }
+    .sim-layout { display:grid; grid-template-columns:1fr 300px; gap:24px; min-width:0; }
+    @media(max-width:900px) { .sim-layout { grid-template-columns:1fr; } }
+    .sim-canvas-wrap { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; min-width:0; overflow:hidden; }
+    .sim-canvas-wrap canvas { width:100%; height:auto; display:block; border-radius:8px; }
+    .sim-controls-col { display:flex; flex-direction:column; gap:12px; min-width:0; overflow:hidden; }
+    .sim-group-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+    .sim-shift-btn { width:100%; padding:10px 12px; border-radius:9px; border:1.5px solid; font-size:12px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.15s; text-align:left; word-wrap:break-word; overflow-wrap:break-word; }
+    .sim-shift-btn:hover { transform:translateX(3px); }
+    .sim-shift-btn:active { transform:scale(0.98); }
+    .sim-reset-btn { width:100%; padding:9px; border-radius:9px; border:1px solid var(--border); background:var(--bg); color:var(--muted); font-size:12px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; margin-top:4px; }
+    .sim-followup { background:rgba(163,230,53,0.07); border:1px solid rgba(163,230,53,0.25); border-radius:12px; padding:18px; margin-top:16px; }
+    .sim-followup-q { font-size:14px; font-weight:600; margin-bottom:12px; color:#a3e635; }
+    .sim-followup-opts { display:flex; flex-direction:column; gap:7px; }
+    .sim-fopt { padding:9px 14px; border-radius:8px; border:1.5px solid var(--border); font-size:13px; cursor:pointer; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; transition:all 0.15s; text-align:left; }
+    .sim-fopt:hover:not(:disabled) { border-color:#a3e635; }
+    .sim-fopt.correct { background:#0d2e14; border-color:#a3e635; color:#a3e635; }
+    .sim-fopt.wrong { background:#2a1010; border-color:#f87171; color:#f87171; }
+    .sim-state-display { background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:14px; font-size:13px; line-height:1.8; }
+    .sim-state-row { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid var(--border); }
+    .sim-state-row:last-child { border-bottom:none; }
+    .sim-state-key { color:var(--muted); }
+    .sim-state-val { font-weight:700; }
+    .sim-state-val.up { color:#34d399; }
+    .sim-state-val.down { color:#f87171; }
+    .sim-state-val.neutral { color:var(--text); }
+  </style>
+
+  <div class="sim-tabs">
+    <button class="sim-tab active" onclick="simTab('adas')">AD-AS Model</button>
+    <button class="sim-tab" onclick="simTab('money')">Money Market</button>
+    <button class="sim-tab" onclick="simTab('loanable')">Loanable Funds</button>
+    <button class="sim-tab" onclick="simTab('phillips')">Phillips Curve</button>
+  </div>
+
+  <!-- AD-AS Panel -->
+  <div class="sim-panel active" id="sim-adas">
+    <div class="sim-layout">
+      <div>
+        <div class="sim-canvas-wrap">
+          <canvas id="canvas-adas" width="520" height="400"></canvas>
+        </div>
+        <div id="adas-followup" style="display:none;margin-top:16px">
+        </div>
+      </div>
+      <div class="sim-controls-col">
+        <div>
+          <div class="sim-group-label" style="color:#4f9cf9">Aggregate Demand</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="adasShift('ad','right')" style="color:#4f9cf9;border-color:#4f9cf9;background:rgba(79,156,249,0.08)">➡ Shift AD Right
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Gov't spending · ↓ Taxes · ↑ Consumer confidence<br>↑ Exports · ↓ Interest rates · Fed buys bonds</div>
+            </button>
+            <button class="sim-shift-btn" onclick="adasShift('ad','left')" style="color:#fb7185;border-color:#fb7185;background:rgba(251,113,133,0.08)">⬅ Shift AD Left
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Taxes · ↓ Gov't spending · ↓ Consumer confidence<br>↑ Interest rates · Fed sells bonds · ↓ Net exports</div>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="sim-group-label" style="color:#fbbf24">Short-Run AS</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="adasShift('sras','right')" style="color:#fbbf24;border-color:#fbbf24;background:rgba(251,191,36,0.08)">➡ Shift SRAS Right
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↓ Input/oil prices · ↑ Productivity · ↓ Wages<br>Gov't production subsidies · Better technology</div>
+            </button>
+            <button class="sim-shift-btn" onclick="adasShift('sras','left')" style="color:#fb923c;border-color:#fb923c;background:rgba(251,146,60,0.08)">⬅ Shift SRAS Left
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Oil/energy prices · ↑ Wages (wage-price spiral)<br>Supply chain disruptions · Natural disasters</div>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="sim-group-label" style="color:#f472b6">Long-Run AS</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="adasShift('lras','right')" style="color:#f472b6;border-color:#f472b6;background:rgba(244,114,182,0.08)">➡ Shift LRAS Right
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Technology · ↑ Physical/human capital · More resources<br>↑ Labor force · Better institutions/infrastructure</div>
+            </button>
+            <button class="sim-shift-btn" onclick="adasShift('lras','left')" style="color:#e879f9;border-color:#e879f9;background:rgba(232,121,249,0.08)">⬅ Shift LRAS Left
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">War/disaster destroying capital · Emigration of workers<br>Resource depletion · Loss of productive capacity</div>
+            </button>
+          </div>
+        </div>
+        <button class="sim-reset-btn" onclick="adasReset()">↺ Reset to Equilibrium</button>
+        <div>
+          <div class="sim-group-label">Current Outcomes</div>
+          <div class="sim-state-display" id="adas-state">
+            <div class="sim-state-row"><span class="sim-state-key">Real GDP</span><span class="sim-state-val neutral" id="st-gdp">At Potential (Q*)</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Price Level</span><span class="sim-state-val neutral" id="st-pl">Stable (P*)</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Unemployment</span><span class="sim-state-val neutral" id="st-un">Natural Rate</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Output Gap</span><span class="sim-state-val neutral" id="st-gap">None</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Money Market Panel -->
+  <div class="sim-panel" id="sim-money">
+    <div class="sim-layout">
+      <div>
+        <div class="sim-canvas-wrap">
+          <canvas id="canvas-money" width="520" height="400"></canvas>
+        </div>
+        <div id="money-followup" style="display:none;margin-top:16px">
+        </div>
+      </div>
+      <div class="sim-controls-col">
+        <div>
+          <div class="sim-group-label" style="color:#34d399">Money Supply (Fed)</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="moneyShift('ms','right')" style="color:#34d399;border-color:#34d399;background:rgba(52,211,153,0.08)">➡ Increase Money Supply
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">Fed buys bonds (OMO) · ↓ Reserve requirement<br>↓ Discount rate · Expansionary policy</div>
+            </button>
+            <button class="sim-shift-btn" onclick="moneyShift('ms','left')" style="color:#fb7185;border-color:#fb7185;background:rgba(251,113,133,0.08)">⬅ Decrease Money Supply
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">Fed sells bonds (OMO) · ↑ Reserve requirement<br>↑ Discount rate · Contractionary policy</div>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="sim-group-label" style="color:#a78bfa">Money Demand</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="moneyShift('md','right')" style="color:#a78bfa;border-color:#a78bfa;background:rgba(167,139,250,0.08)">➡ Increase Money Demand
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Real GDP (more transactions) · ↑ Price level<br>↑ Economic activity · ↑ Nominal spending</div>
+            </button>
+            <button class="sim-shift-btn" onclick="moneyShift('md','left')" style="color:#fb923c;border-color:#fb923c;background:rgba(251,146,60,0.08)">⬅ Decrease Money Demand
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↓ Real GDP · ↓ Price level (deflation)<br>↓ Nominal income · Recession reducing transactions</div>
+            </button>
+          </div>
+        </div>
+        <button class="sim-reset-btn" onclick="moneyReset()">↺ Reset to Equilibrium</button>
+        <div>
+          <div class="sim-group-label">Current Outcomes</div>
+          <div class="sim-state-display">
+            <div class="sim-state-row"><span class="sim-state-key">Nominal Interest Rate</span><span class="sim-state-val neutral" id="st-nir">Equilibrium (r*)</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Investment</span><span class="sim-state-val neutral" id="st-inv">Stable</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">AD Effect</span><span class="sim-state-val neutral" id="st-adeff">No shift</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loanable Funds Panel -->
+  <div class="sim-panel" id="sim-loanable">
+    <div class="sim-layout">
+      <div>
+        <div class="sim-canvas-wrap">
+          <canvas id="canvas-loanable" width="520" height="400"></canvas>
+        </div>
+      </div>
+      <div class="sim-controls-col">
+        <div>
+          <div class="sim-group-label" style="color:#34d399">Supply of Loanable Funds (Saving)</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="loanableShift('s','right')" style="color:#34d399;border-color:#34d399;background:rgba(52,211,153,0.08)">➡ Increase Supply
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Household saving rate · ↑ Foreign capital inflows<br>Gov't budget surplus · ↑ Disposable income</div>
+            </button>
+            <button class="sim-shift-btn" onclick="loanableShift('s','left')" style="color:#fb7185;border-color:#fb7185;background:rgba(251,113,133,0.08)">⬅ Decrease Supply
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↓ Saving rate · Gov't budget deficit (borrowing)<br>↓ Foreign capital · Crowding out effect</div>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="sim-group-label" style="color:#fb7185">Demand for Loanable Funds (Borrowing)</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="loanableShift('d','right')" style="color:#fb7185;border-color:#fb7185;background:rgba(251,113,133,0.08)">➡ Increase Demand
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">Gov't deficit spending · ↑ Business investment optimism<br>↑ Consumer borrowing · ↑ Expected returns</div>
+            </button>
+            <button class="sim-shift-btn" onclick="loanableShift('d','left')" style="color:#fbbf24;border-color:#fbbf24;background:rgba(251,191,36,0.08)">⬅ Decrease Demand
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">Gov't budget surplus · ↓ Business investment<br>↓ Consumer confidence · Recession expectations</div>
+            </button>
+          </div>
+        </div>
+        <button class="sim-reset-btn" onclick="loanableReset()">↺ Reset to Equilibrium</button>
+        <div>
+          <div class="sim-group-label">Current Outcomes</div>
+          <div class="sim-state-display">
+            <div class="sim-state-row"><span class="sim-state-key">Real Interest Rate</span><span class="sim-state-val neutral" id="st-rir">Equilibrium (r*)</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Private Investment</span><span class="sim-state-val neutral" id="st-pi">Stable</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Crowding Out?</span><span class="sim-state-val neutral" id="st-co">No</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phillips Curve Panel -->
+  <div class="sim-panel" id="sim-phillips">
+    <div class="sim-layout">
+      <div>
+        <div class="sim-canvas-wrap">
+          <canvas id="canvas-phillips" width="520" height="400"></canvas>
+        </div>
+        <div id="phillips-followup" style="display:none;margin-top:16px"></div>
+      </div>
+      <div class="sim-controls-col">
+        <div>
+          <div class="sim-group-label" style="color:#f97316">Movement Along SRPC</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="phillipsMove('exp')" style="color:#34d399;border-color:#34d399;background:rgba(52,211,153,0.08)">↖ Expansionary Policy
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ AD (buy bonds, ↓ taxes, ↑ gov't spending)<br>→ ↓ Unemployment · ↑ Inflation · Inflationary gap</div>
+            </button>
+            <button class="sim-shift-btn" onclick="phillipsMove('con')" style="color:#f87171;border-color:#f87171;background:rgba(248,113,113,0.08)">↘ Contractionary Policy
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↓ AD (sell bonds, ↑ taxes, ↓ gov't spending)<br>→ ↑ Unemployment · ↓ Inflation · Recessionary gap</div>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="sim-group-label" style="color:#fb923c">Shift the Entire SRPC</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="sim-shift-btn" onclick="phillipsShift('right')" style="color:#fb923c;border-color:#fb923c;background:rgba(251,146,60,0.08)">➡ SRPC Shifts Right (Stagflation)
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↑ Oil/energy prices · Supply chain shock<br>↑ Inflation expectations · ↑ Input costs</div>
+            </button>
+            <button class="sim-shift-btn" onclick="phillipsShift('left')" style="color:#a3e635;border-color:#a3e635;background:rgba(163,230,53,0.08)">⬅ SRPC Shifts Left (Improvement)
+              <div style="font-size:11px;opacity:0.75;margin-top:3px;line-height:1.5">↓ Oil prices · ↑ Productivity · ↓ Inflation expectations<br>Positive supply shock · Better technology</div>
+            </button>
+          </div>
+        </div>
+        <button class="sim-reset-btn" onclick="phillipsReset()">↺ Reset to Equilibrium</button>
+        <div>
+          <div class="sim-group-label">Current State</div>
+          <div class="sim-state-display">
+            <div class="sim-state-row"><span class="sim-state-key">Inflation Rate</span><span class="sim-state-val neutral" id="st-pi2">2% (target)</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Unemployment</span><span class="sim-state-val neutral" id="st-u2">4.5% (NRU)</span></div>
+            <div class="sim-state-row"><span class="sim-state-key">Condition</span><span class="sim-state-val neutral" id="st-cond">Long-run equilibrium</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ CAUSE AND EFFECT CHAINS ═══════════════════ -->
+<div class="section" id="cause-effect">
+  <div class="section-header">
+    <div class="section-num" style="color:#fb923c">🔗</div>
+    <div>
+      <div class="section-title" style="color:#fb923c">Cause-and-Effect Chain Activities</div>
+      <div style="font-size:13px;color:var(--muted)">Click the correct next step to complete the economic logic chain</div>
+    </div>
+    <div class="section-tag" style="color:#fb923c;border-color:#fb923c;background:rgba(251,146,60,0.1)">INTERACTIVE</div>
+  </div>
+
+  <style>
+    .chain-selector { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+    .chain-sel-btn { padding:9px 16px; border-radius:9px; border:1.5px solid var(--border); font-size:13px; font-weight:600; cursor:pointer; background:var(--bg); color:var(--muted); font-family:'DM Sans',sans-serif; transition:all 0.15s; }
+    .chain-sel-btn:hover { border-color:#fb923c; color:var(--text); }
+    .chain-sel-btn.active { border-color:#fb923c; background:rgba(251,146,60,0.1); color:#fb923c; }
+    .chain-wrap { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; }
+    .chain-title { font-weight:700; font-size:17px; margin-bottom:6px; color:#fb923c; }
+    .chain-scenario { font-size:13.5px; color:var(--muted); margin-bottom:24px; line-height:1.65; }
+    .chain-steps-display { display:flex; flex-direction:column; gap:0; }
+    .chain-step-done { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); animation:fadeInUp 0.3s ease; }
+    .chain-step-node { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; font-weight:700; }
+    .chain-step-text { font-size:14px; font-weight:600; padding-top:6px; line-height:1.5; }
+    .chain-arrow { text-align:center; font-size:20px; color:var(--border); padding:4px 0; }
+    .chain-question { margin-top:20px; }
+    .chain-q-label { font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:10px; }
+    .chain-q-text { font-size:15px; font-weight:600; margin-bottom:14px; }
+    .chain-choices { display:flex; flex-direction:column; gap:8px; }
+    .chain-choice { padding:11px 16px; border-radius:9px; border:1.5px solid var(--border); font-size:13.5px; cursor:pointer; background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; transition:all 0.2s; text-align:left; }
+    .chain-choice:hover:not(:disabled) { border-color:#fb923c; background:rgba(251,146,60,0.07); transform:translateX(4px); }
+    .chain-choice.correct { background:#1a2e10; border-color:#a3e635; color:#a3e635; }
+    .chain-choice.wrong { background:#2a1010; border-color:#f87171; color:#f87171; animation:shake 0.3s ease; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+    .chain-explain { margin-top:12px; padding:12px 16px; border-radius:9px; background:rgba(163,230,53,0.06); border-left:3px solid #a3e635; font-size:13px; color:#86efac; }
+    .chain-continue-btn { margin-top:16px; padding:10px 20px; border-radius:9px; border:1.5px solid #fb923c; background:rgba(251,146,60,0.1); color:#fb923c; font-size:13px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; display:none; }
+    .chain-complete { text-align:center; padding:32px; animation:fadeInUp 0.4s ease; }
+    .chain-complete-icon { font-size:48px; margin-bottom:12px; }
+    .chain-complete-title { font-family:'Bebas Neue',sans-serif; font-size:32px; color:#a3e635; }
+    .chain-complete-sub { color:var(--muted); margin-top:8px; font-size:14px; }
+    .chain-restart-btn { margin-top:16px; padding:10px 24px; border-radius:9px; border:1.5px solid #fb923c; background:rgba(251,146,60,0.1); color:#fb923c; font-size:13px; font-weight:600; cursor:pointer; font-family:'DM Sans',sans-serif; }
+  </style>
+
+  <div class="chain-selector" id="chain-selector"></div>
+  <div class="chain-wrap" id="chain-wrap"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ DATA INTERPRETATION MODULE ═══════════════════ -->
+<div class="section" id="data-interpret">
+  <div class="section-header">
+    <div class="section-num" style="color:#e879f9">📊</div>
+    <div>
+      <div class="section-title" style="color:#e879f9">Stimulus & Data Interpretation</div>
+      <div style="font-size:13px;color:var(--muted)">Analyze economic data · Federal Reserve announcements · AP-style stimulus questions</div>
+    </div>
+    <div class="section-tag" style="color:#e879f9;border-color:#e879f9;background:rgba(232,121,249,0.1)">INTERACTIVE</div>
+  </div>
+
+  <style>
+    .stim-tabs { display:flex; gap:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:24px; flex-wrap:wrap; }
+    .stim-tab { flex:1; min-width:80px; padding:11px 8px; text-align:center; font-size:11px; font-weight:600; cursor:pointer; border:none; background:var(--surface); color:var(--muted); font-family:'DM Sans',sans-serif; transition:all 0.15s; border-right:1px solid var(--border); }
+    .stim-tab:last-child { border-right:none; }
+    .stim-tab.active { background:rgba(232,121,249,0.12); color:#e879f9; }
+    .stim-panel { display:none; }
+    .stim-panel.active { display:block; animation:fadeInUp 0.2s ease; }
+    .stim-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; margin-bottom:20px; overflow:hidden; min-width:0; max-width:100%; }
+    .stim-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#e879f9; margin-bottom:10px; }
+    .stim-headline { font-size:17px; font-weight:700; margin-bottom:8px; line-height:1.4; }
+    .stim-body { font-size:13.5px; color:var(--muted); line-height:1.7; margin-bottom:16px; }
+    .data-table-wrap { overflow-x:auto; margin-bottom:16px; max-width:100%; width:100%; -webkit-overflow-scrolling:touch; }
+    .data-table { width:100%; min-width:420px; border-collapse:collapse; font-size:12px; }
+    .data-table th { background:rgba(232,121,249,0.1); color:#e879f9; padding:7px 9px; text-align:left; font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; border-bottom:1px solid var(--border); white-space:nowrap; }
+    .data-table td { padding:7px 9px; border-bottom:1px solid var(--border); font-size:12px; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table .pos { color:#34d399; font-weight:700; }
+    .data-table .neg { color:#f87171; font-weight:700; }
+    .stim-qs { display:flex; flex-direction:column; gap:16px; margin-top:20px; }
+    .stim-q { background:var(--bg); border:1px solid var(--border); border-radius:11px; padding:18px; }
+    .stim-q-num { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); margin-bottom:6px; letter-spacing:0.1em; }
+    .stim-q-text { font-size:14px; font-weight:600; margin-bottom:12px; line-height:1.55; }
+    .stim-q-choices { display:flex; flex-direction:column; gap:6px; }
+    .stim-q-choice { padding:9px 14px; border-radius:8px; border:1.5px solid var(--border); font-size:13px; cursor:pointer; background:var(--surface); color:var(--text); font-family:'DM Sans',sans-serif; transition:all 0.15s; text-align:left; }
+    .stim-q-choice:hover:not(:disabled) { border-color:#e879f9; background:rgba(232,121,249,0.06); }
+    .stim-q-choice.correct { background:#1a1030; border-color:#e879f9; color:#e879f9; }
+    .stim-q-choice.wrong { background:#2a1010; border-color:#f87171; color:#f87171; }
+    .stim-q-explain { margin-top:10px; padding:11px 14px; border-radius:8px; background:rgba(232,121,249,0.06); border-left:3px solid #e879f9; font-size:13px; color:#d8b4fe; display:none; }
+    .stim-q-explain.show { display:block; animation:fadeInUp 0.2s ease; }
+    .chart-bars { display:flex; align-items:flex-end; gap:8px; height:160px; padding:8px 0; margin-bottom:8px; overflow:hidden; box-sizing:border-box; }
+    .chart-bar-wrap { flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; gap:4px; height:100%; justify-content:flex-end; overflow:hidden; }
+    .chart-bar { width:100%; border-radius:4px 4px 0 0; min-height:4px; transition:height 0.4s ease; max-height:calc(100% - 32px); }
+    .chart-bar-label { font-size:10px; color:var(--muted); white-space:nowrap; }
+    .chart-bar-val { font-size:11px; font-weight:700; flex-shrink:0; }
+  </style>
+
+  <div class="stim-tabs">
+    <button class="stim-tab active" onclick="stimTab('inflation')">📈 Inflation Data</button>
+    <button class="stim-tab" onclick="stimTab('unemployment')">📉 Unemployment</button>
+    <button class="stim-tab" onclick="stimTab('fed')">🏛 Fed Announcement</button>
+    <button class="stim-tab" onclick="stimTab('gdp')">💹 GDP Report</button>
+  </div>
+
+  <!-- Inflation Panel -->
+  <div class="stim-panel active" id="stim-inflation">
+    <div class="stim-card">
+      <div class="stim-label">Economic Data — Bureau of Labor Statistics</div>
+      <div class="stim-headline">U.S. Inflation Trends — Consumer Price Index (CPI), Year-over-Year % Change</div>
+      <div class="stim-body">The following table shows recent inflation data across key categories. Use this data to answer the analysis questions below.</div>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Category</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Trend</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Overall CPI</strong></td><td>2.1%</td><td>4.7%</td><td>8.0%</td><td>3.4%</td><td class="pos">↓ Declining</td></tr>
+          <tr><td>Food & Beverages</td><td>2.3%</td><td>3.9%</td><td>10.4%</td><td>5.8%</td><td class="neg">↑ Still high</td></tr>
+          <tr><td>Energy</td><td>3.5%</td><td>29.3%</td><td>41.6%</td><td>-2.0%</td><td class="pos">↓ Fell</td></tr>
+          <tr><td>Core CPI (ex. food/energy)</td><td>1.6%</td><td>3.6%</td><td>5.9%</td><td>3.9%</td><td class="neg">↑ Sticky</td></tr>
+          <tr><td>Shelter (Rent/Housing)</td><td>3.3%</td><td>4.0%</td><td>7.9%</td><td>6.2%</td><td class="neg">↑ Very sticky</td></tr>
+        </tbody>
+      </table></div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:0.08em">Overall CPI — Year over Year</div>
+          <div class="chart-bars">
+            <div class="chart-bar-wrap"><div class="chart-bar-val" style="color:#a78bfa">2.1%</div><div class="chart-bar" style="height:22%;background:#a78bfa"></div><div class="chart-bar-label">Yr 1</div></div>
+            <div class="chart-bar-wrap"><div class="chart-bar-val" style="color:#fb923c">4.7%</div><div class="chart-bar" style="height:48%;background:#fb923c"></div><div class="chart-bar-label">Yr 2</div></div>
+            <div class="chart-bar-wrap"><div class="chart-bar-val" style="color:#f87171">8.0%</div><div class="chart-bar" style="height:82%;background:#f87171"></div><div class="chart-bar-label">Yr 3</div></div>
+            <div class="chart-bar-wrap"><div class="chart-bar-val" style="color:#34d399">3.4%</div><div class="chart-bar" style="height:35%;background:#34d399"></div><div class="chart-bar-label">Yr 4</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="stim-qs" id="inflation-qs"></div>
+    </div>
+  </div>
+
+  <!-- Unemployment Panel -->
+  <div class="stim-panel" id="stim-unemployment">
+    <div class="stim-card">
+      <div class="stim-label">Economic Data — Bureau of Labor Statistics</div>
+      <div class="stim-headline">U.S. Labor Market Indicators — Quarterly Data</div>
+      <div class="stim-body">Analyze the labor market data below, then answer AP-style interpretation questions.</div>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Indicator</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Unemployment Rate</strong></td><td>5.9%</td><td>5.2%</td><td>4.6%</td><td>3.7%</td></tr>
+          <tr><td>Frictional Unemployment</td><td>2.0%</td><td>2.0%</td><td>2.1%</td><td>2.0%</td></tr>
+          <tr><td>Structural Unemployment</td><td>2.0%</td><td>1.9%</td><td>2.0%</td><td>1.7%</td></tr>
+          <tr><td>Cyclical Unemployment</td><td class="neg">1.9%</td><td class="neg">1.3%</td><td class="neg">0.5%</td><td class="pos">0.0%</td></tr>
+          <tr><td>Labor Force Participation</td><td>61.6%</td><td>61.9%</td><td>62.1%</td><td>62.4%</td></tr>
+          <tr><td>GDP Growth Rate (annualized)</td><td class="pos">2.1%</td><td class="pos">3.4%</td><td class="pos">4.2%</td><td class="pos">3.8%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="stim-qs" id="unemployment-qs"></div>
+    </div>
+  </div>
+
+  <!-- Fed Announcement Panel -->
+  <div class="stim-panel" id="stim-fed">
+    <div class="stim-card">
+      <div class="stim-label">Federal Open Market Committee — Press Release Simulation</div>
+      <div class="stim-headline">FOMC Announces 50 Basis Point Rate Increase</div>
+      <div class="stim-body">
+        <strong style="color:var(--text)">FOR IMMEDIATE RELEASE</strong><br><br>
+        The Federal Open Market Committee (FOMC) decided to raise the target range for the federal funds rate by 50 basis points (0.50 percentage points) to 4.25–4.50 percent. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run.<br><br>
+        Recent indicators suggest that economic activity has been expanding at a modest pace. Job gains have been robust in recent months, and the unemployment rate has remained low. Inflation remains elevated, reflecting supply and demand imbalances related to the pandemic, higher food and energy prices, and broader price pressures.<br><br>
+        In determining the pace of future increases, the Committee will take into account the cumulative tightening of monetary policy, the lags with which monetary policy affects economic activity and inflation, and economic and financial developments. The Committee is strongly committed to returning inflation to its 2 percent objective.
+      </div>
+      <div class="stim-qs" id="fed-qs"></div>
+    </div>
+  </div>
+
+  <!-- GDP Report Panel -->
+  <div class="stim-panel" id="stim-gdp">
+    <div class="stim-card">
+      <div class="stim-label">Bureau of Economic Analysis — GDP Report</div>
+      <div class="stim-headline">Real GDP Growth by Component — Annual % Change</div>
+      <div class="stim-body">The following data shows the contribution of each GDP component to overall economic growth. Use this to identify which sectors are driving economic changes.</div>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>GDP Component</th><th>Year A (Recession)</th><th>Year B (Recovery)</th><th>Year C (Expansion)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Real GDP Growth</strong></td><td class="neg">−2.1%</td><td class="pos">+1.9%</td><td class="pos">+3.8%</td></tr>
+          <tr><td>Consumer Spending (C)</td><td class="neg">−1.8%</td><td class="pos">+1.5%</td><td class="pos">+2.4%</td></tr>
+          <tr><td>Business Investment (I)</td><td class="neg">−14.6%</td><td class="neg">−3.2%</td><td class="pos">+8.7%</td></tr>
+          <tr><td>Government Spending (G)</td><td class="pos">+4.1%</td><td class="pos">+3.8%</td><td class="pos">+1.2%</td></tr>
+          <tr><td>Net Exports (X−M)</td><td class="pos">+0.8%</td><td class="neg">−0.4%</td><td class="neg">−1.2%</td></tr>
+          <tr><td>Unemployment Rate</td><td class="neg">9.1%</td><td>6.7%</td><td class="pos">4.1%</td></tr>
+          <tr><td>Price Level Change (CPI)</td><td>1.6%</td><td>2.1%</td><td>3.2%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="stim-qs" id="gdp-qs"></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ BANKING & MONEY CREATION SIMULATOR ═══════════════════ -->
+<div class="section" id="banking-sim">
+  <div class="section-header">
+    <div class="section-num" style="color:#34d399">🏦</div>
+    <div>
+      <div class="section-title" style="color:#34d399">Banking & Money Creation Simulator</div>
+      <div style="font-size:13px;color:var(--muted)">Adjust deposits & reserve ratios · Watch T-accounts & money multiplier update live</div>
+    </div>
+    <div class="section-tag" style="color:#34d399;border-color:#34d399;background:rgba(52,211,153,0.1)">INTERACTIVE</div>
+  </div>
+
+  <style>
+    .bank-layout { display:grid; grid-template-columns:300px 1fr; gap:24px; min-width:0; }
+    @media(max-width:900px) { .bank-layout { grid-template-columns:1fr; } }
+    .bank-controls { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; }
+    .bank-slider-group { margin-bottom:22px; }
+    .bank-slider-label { font-size:13px; font-weight:600; margin-bottom:6px; display:flex; justify-content:space-between; }
+    .bank-slider-val { color:#34d399; font-family:'DM Mono',monospace; }
+    input[type=range] { width:100%; accent-color:#34d399; cursor:pointer; height:6px; }
+    .bank-preset-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .bank-preset { padding:5px 12px; border-radius:6px; border:1px solid var(--border); font-size:11px; font-weight:600; cursor:pointer; background:var(--bg); color:var(--muted); font-family:'DM Sans',sans-serif; }
+    .bank-preset:hover { border-color:#34d399; color:#34d399; }
+    .bank-right { display:flex; flex-direction:column; gap:16px; }
+    .taccount { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; }
+    .taccount-title { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.05em; margin-bottom:4px; }
+    .taccount-sub { font-size:12px; color:var(--muted); margin-bottom:16px; }
+    .taccount-table { width:100%; border-collapse:collapse; }
+    .taccount-table th { font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); padding:8px 14px; border-bottom:2px solid var(--border); text-align:left; }
+    .taccount-table td { padding:10px 14px; border-bottom:1px solid var(--border); font-size:14px; }
+    .taccount-table tr:last-child td { border-bottom:none; font-weight:700; }
+    .taccount-table .asset { color:#4f9cf9; }
+    .taccount-table .liability { color:#f472b6; }
+    .taccount-divider { width:2px; background:var(--border); }
+    .money-mult-display { background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(79,156,249,0.08)); border:1px solid rgba(52,211,153,0.3); border-radius:14px; padding:24px; text-align:center; }
+    .money-mult-title { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px; }
+    .money-mult-formula { font-family:'DM Mono',monospace; font-size:15px; color:var(--text); margin-bottom:16px; }
+    .money-mult-val { font-family:'Bebas Neue',sans-serif; font-size:64px; line-height:1; color:#34d399; }
+    .money-mult-sub { font-size:13px; color:var(--muted); margin-top:8px; }
+    .money-created-val { font-family:'Bebas Neue',sans-serif; font-size:36px; color:#fbbf24; }
+    .bank-chain { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; }
+    .bank-chain-title { font-weight:700; font-size:15px; color:#34d399; margin-bottom:14px; }
+    .bank-chain-rows { display:flex; flex-direction:column; gap:0; }
+    .bcr { display:grid; grid-template-columns:20px minmax(0,100px) 1fr 1fr 1fr; gap:6px; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); font-size:12px; overflow:hidden; }
+    .bcr:first-child { font-size:11px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.06em; }
+    .bcr:last-child { border-bottom:none; }
+    .bcr-num { color:var(--muted); font-family:'DM Mono',monospace; font-size:11px; }
+    .bcr-bank { color:var(--text); font-weight:600; }
+    .bcr-dep { color:#4f9cf9; }
+    .bcr-res { color:#fbbf24; }
+    .bcr-loan { color:#34d399; }
+    .bcr-more { color:var(--muted); font-size:11px; font-style:italic; }
+  </style>
+
+  <div class="bank-layout">
+    <div class="bank-controls">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.05em;color:#34d399;margin-bottom:4px">Control Panel</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:24px">Adjust inputs to see real-time effects on the banking system</div>
+
+      <div class="bank-slider-group">
+        <div class="bank-slider-label">Initial Deposit <span class="bank-slider-val" id="dep-label">$1,000</span></div>
+        <input type="range" id="dep-slider" min="100" max="10000" step="100" value="1000" oninput="bankUpdate()">
+        <div class="bank-preset-row">
+          <button class="bank-preset" onclick="setDeposit(500)">$500</button>
+          <button class="bank-preset" onclick="setDeposit(1000)">$1,000</button>
+          <button class="bank-preset" onclick="setDeposit(5000)">$5,000</button>
+          <button class="bank-preset" onclick="setDeposit(10000)">$10,000</button>
+        </div>
+      </div>
+
+      <div class="bank-slider-group">
+        <div class="bank-slider-label">Reserve Requirement <span class="bank-slider-val" id="rr-label">10%</span></div>
+        <input type="range" id="rr-slider" min="1" max="50" step="1" value="10" oninput="bankUpdate()">
+        <div class="bank-preset-row">
+          <button class="bank-preset" onclick="setRR(5)">5% (Low)</button>
+          <button class="bank-preset" onclick="setRR(10)">10% (Standard)</button>
+          <button class="bank-preset" onclick="setRR(20)">20% (High)</button>
+          <button class="bank-preset" onclick="setRR(50)">50% (Very High)</button>
+        </div>
+      </div>
+
+      <div style="background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.2);border-radius:10px;padding:16px;margin-top:8px;">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">AP Exam Formulas</div>
+        <div style="font-size:13px;line-height:2;font-family:'DM Mono',monospace;color:var(--text)">
+          Money Multiplier = 1 ÷ RR<br>
+          Max New Money = Deposit × Multiplier<br>
+          Required Reserves = Deposit × RR<br>
+          Excess Reserves = Deposit − Req. Res.
+        </div>
+      </div>
+    </div>
+
+    <div class="bank-right">
+      <div class="money-mult-display">
+        <div class="money-mult-title">Money Multiplier</div>
+        <div class="money-mult-formula" id="mult-formula">1 ÷ 0.10 = </div>
+        <div class="money-mult-val" id="mult-val">10×</div>
+        <div class="money-mult-sub">Maximum money created from initial deposit</div>
+        <div style="margin-top:16px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap">
+          <div style="text-align:center">
+            <div class="money-created-val" id="money-created">$10,000</div>
+            <div style="font-size:11px;color:var(--muted)">Max Money Created</div>
+          </div>
+          <div style="text-align:center">
+            <div class="money-created-val" id="new-money" style="color:#a78bfa">$9,000</div>
+            <div style="font-size:11px;color:var(--muted)">New Money (excl. original)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="taccount">
+        <div class="taccount-title" style="color:#34d399">Bank 1 — T-Account</div>
+        <div class="taccount-sub">When you deposit $<span id="ta-dep">1,000</span> with a <span id="ta-rr">10%</span> reserve requirement:</div>
+        <table class="taccount-table">
+          <tr><th style="width:50%">ASSETS</th><th style="width:50%">LIABILITIES</th></tr>
+          <tr>
+            <td><span class="asset">Required Reserves<br><strong id="ta-req-res">$100</strong></span></td>
+            <td><span class="liability">Deposits<br><strong id="ta-liab">$1,000</strong></span></td>
+          </tr>
+          <tr>
+            <td><span class="asset">Loans Made<br><strong id="ta-loans">$900</strong></span></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><span style="color:var(--text)">Total Assets: <strong id="ta-total-a">$1,000</strong></span></td>
+            <td><span style="color:var(--text)">Total Liab.: <strong id="ta-total-l">$1,000</strong></span></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="bank-chain">
+        <div class="bank-chain-title">💸 Money Creation Chain (First 6 Banks)</div>
+        <div class="bank-chain-rows" id="bank-chain-rows">
+          <div class="bcr">
+            <span></span><span>Bank</span><span>Deposits</span><span>Reserves</span><span>New Loans</span>
+          </div>
+        </div>
+        <div id="bank-chain-more" style="padding:8px 0;font-size:12px;color:var(--muted);font-style:italic"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
 <div style="text-align:center;padding:48px 32px 64px;color:var(--muted);font-size:13px;">
   <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.1em;color:var(--text);margin-bottom:12px;">GOOD LUCK ON THE EXAM 🎓</div>
-  <p>AP Macro Ultimate Review Packet · All 6 Units · 6 Key Graphs · FRQ Mastery · 4 Comparison Charts · 50+ Vocab Terms</p>
+  <p>AP Macro Ultimate Review Packet · All 6 Units · 6 Key Graphs · FRQ Mastery · 4 Comparison Charts · 60+ Vocab Terms</p>
+  <p style="margin-top:6px">✨ 5 Interactive Modules: MCQ Bank · Graph Simulator (w/ Long-Run Adjustment panels) · Cause-&-Effect Chains · Data Interpretation · Banking Simulator</p>
   <p style="margin-top:6px">Return to top: <a href="#legend" style="color:var(--frq);text-decoration:none;">Table of Contents ↑</a></p>
   <div style="margin-top:20px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em">AP EXAM STRUCTURE: Section I — 70 min MCQ (70 Qs, 66%) · Section II — 60 min FRQ (3 Qs, 33%)</div>
 </div>
 
+
+<script>
+// ════════════════════════════════════════════════════════
+//  MODULE 1: INTERACTIVE MCQ BANK
+// ════════════════════════════════════════════════════════
+const MCQ_DATA = [
+  // Unit 1
+  {unit:1,q:"A country can produce either 100 units of clothing or 50 units of food, or any linear combination. The opportunity cost of one unit of food is:",choices:["2 units of clothing","0.5 units of clothing","1 unit of clothing","100 units of clothing"],correct:0,explain:"Using the PPC: if they give up 100 clothing to get 50 food, each unit of food costs 100/50 = 2 units of clothing. Opportunity cost = what you give up ÷ what you gain."},
+  {unit:1,q:"Country A can produce 10 phones or 5 laptops per hour. Country B can produce 6 phones or 4 laptops per hour. Which statement about comparative advantage is correct?",choices:["Country A has comparative advantage in both goods","Country A has comparative advantage in phones; Country B in laptops","Country B has comparative advantage in phones; Country A in laptops","Neither country has a comparative advantage"],correct:1,explain:"Opportunity cost: Country A: 1 phone = 0.5 laptops; 1 laptop = 2 phones. Country B: 1 phone = 0.67 laptops; 1 laptop = 1.5 phones. Country A's phone opportunity cost (0.5) < Country B's (0.67) → A has comparative advantage in phones. Country B's laptop cost (1.5) < Country A's (2) → B has comparative advantage in laptops."},
+  {unit:1,q:"A point inside the Production Possibilities Curve (PPC) represents:",choices:["Maximum productive efficiency","An unattainable combination of goods","Productive inefficiency — resources are underutilized","A point that can only be reached with economic growth"],correct:2,explain:"Points inside the PPC represent inefficiency — the economy is not using all its resources or not using them at maximum productivity. Points on the curve = efficiency. Points outside = currently unattainable."},
+  {unit:1,q:"Which of the following would cause an OUTWARD shift of the Production Possibilities Curve?",choices:["An increase in consumer demand","A decrease in unemployment","An improvement in technology","A reallocation of resources between industries"],correct:2,explain:"The PPC shifts outward (expands) when the economy's productive capacity increases. Technology improvements increase how much can be produced with the same resources — expanding the frontier. Demand changes and reallocations only move along the existing PPC."},
+
+  // Unit 2
+  {unit:2,q:"Which of the following individuals would be counted as unemployed in official BLS statistics?",choices:["A retiree who stopped working at age 65","A full-time student not looking for work","A person who just quit a job to search for a better one","A person who gave up looking for work 2 months ago"],correct:2,explain:"To be counted as 'unemployed,' a person must be (1) without a job, (2) available for work, AND (3) actively looking for work in the past 4 weeks. A job quitter who is searching = unemployed. The retiree and student aren't in the labor force. The discouraged worker stopped searching, so they are also not counted."},
+  {unit:2,q:"Real GDP differs from Nominal GDP in that Real GDP:",choices:["Includes only goods, not services","Is adjusted for changes in the price level","Is always larger than Nominal GDP","Measures output in current-year prices"],correct:1,explain:"Nominal GDP uses current prices and rises with both real output AND inflation. Real GDP adjusts for price changes (using a base year), so it reflects only changes in actual output quantity. Real GDP < Nominal GDP when current prices exceed base year prices."},
+  {unit:2,q:"The Consumer Price Index (CPI) is best described as:",choices:["A measure of output produced in the economy","A measure of the cost of a fixed basket of goods over time","A measure of wages relative to prices","A measure of business confidence"],correct:1,explain:"The CPI tracks the price of a fixed 'market basket' of goods and services purchased by a typical urban consumer. It is the primary measure of inflation in the U.S. and is used to calculate real wages, adjust Social Security, and set COLA adjustments."},
+  {unit:2,q:"During the contraction phase of the business cycle, which of the following most likely occurs?",choices:["Employment rises and GDP increases","Investment spending increases significantly","Consumer spending declines and unemployment rises","The price level falls rapidly (deflation always occurs)"],correct:2,explain:"During a contraction/recession, GDP falls, firms reduce investment, households cut spending, and unemployment rises. While inflation may slow, outright deflation is not guaranteed — prices are sticky downward."},
+  {unit:2,q:"Structural unemployment is BEST described as unemployment caused by:",choices:["Workers temporarily between jobs","A mismatch between worker skills and available jobs","A decline in overall economic activity","Seasonal fluctuations in labor demand"],correct:1,explain:"Structural unemployment occurs when a worker's skills don't match the skills demanded in available jobs — due to technological change, industry shifts, or geographic mismatches. Frictional = between jobs. Cyclical = recession. Seasonal = seasonal fluctuations."},
+
+  // Unit 3
+  {unit:3,q:"The government increases spending by $200 billion and the MPC = 0.75. What is the total change in GDP (assuming no crowding out)?",choices:["$150 billion","$200 billion","$600 billion","$800 billion"],correct:3,explain:"Spending multiplier = 1/(1−MPC) = 1/(1−0.75) = 1/0.25 = 4. Total change in GDP = $200B × 4 = $800 billion. The spending multiplier amplifies the initial injection through rounds of spending and re-spending."},
+  {unit:3,q:"Stagflation is represented in the AD-AS model by:",choices:["AD shifting right","AD shifting left","SRAS shifting left","LRAS shifting right"],correct:2,explain:"Stagflation = simultaneous high inflation AND high unemployment. In AD-AS, a leftward shift of SRAS (due to supply shock like oil price spike) raises the price level AND reduces real GDP — causing both inflation and unemployment to rise simultaneously."},
+  {unit:3,q:"Which of the following is an example of an automatic stabilizer?",choices:["The Fed cuts interest rates during a recession","Congress passes a stimulus bill","Unemployment insurance payments increase during a recession","The government raises taxes to reduce the deficit"],correct:2,explain:"Automatic stabilizers work without new legislation. Unemployment insurance automatically pays more during recessions (reducing the demand shortfall) and pays less during expansions. They don't require Congressional action — they respond automatically to economic conditions."},
+  {unit:3,q:"The Short-Run Phillips Curve shows a trade-off between:",choices:["Nominal and real interest rates","Inflation and unemployment","Real GDP and nominal GDP","Exports and imports"],correct:1,explain:"The SRPC shows an inverse relationship between inflation and unemployment: when unemployment falls (output rises above potential), inflation tends to rise. This reflects the AD-AS model — expansionary policy causes both lower unemployment and higher prices simultaneously."},
+  {unit:3,q:"If the economy is in an inflationary gap, the MOST appropriate fiscal policy response would be to:",choices:["Increase government spending and cut taxes","Cut government spending and increase taxes","Have the Fed buy bonds","Decrease the reserve requirement"],correct:1,explain:"An inflationary gap means output > potential GDP. To close it, policymakers need contractionary fiscal policy: decrease government spending and/or raise taxes. This shifts AD left, reducing the price pressure. The other options are all expansionary policies."},
+
+  // Unit 4
+  {unit:4,q:"When the Federal Reserve sells bonds on the open market, which of the following occurs?",choices:["The money supply increases and interest rates fall","Bank reserves increase and lending expands","The money supply decreases and interest rates rise","The federal funds rate falls"],correct:2,explain:"Selling bonds = contractionary monetary policy. When the Fed sells bonds, banks pay for them, reducing bank reserves → less money to lend → money supply contracts → interest rates rise. This is the opposite of buying bonds (expansionary policy)."},
+  {unit:4,q:"A bank has $500 in deposits, a 20% reserve requirement, and currently holds $150 in reserves. The bank's excess reserves are:",choices:["$100","$50","$150","$350"],correct:1,explain:"Required reserves = 20% × $500 = $100. Actual reserves = $150. Excess reserves = $150 − $100 = $50. The bank can lend out these $50 in excess reserves."},
+  {unit:4,q:"In the Money Market model, which of the following would shift the Money Demand curve to the RIGHT?",choices:["The Fed buys bonds","Real GDP increases","The reserve requirement decreases","The discount rate decreases"],correct:1,explain:"Money demand (Md) increases when the economy grows — more GDP means more transactions, so people need more money to facilitate them. This shifts Md right → higher nominal interest rate (with a fixed Ms). The other options affect money supply, not demand."},
+  {unit:4,q:"The loanable funds market reaches equilibrium where:",choices:["Saving equals investment (S = I)","Nominal interest rate equals real interest rate","Government spending equals tax revenue","The money supply equals money demand"],correct:0,explain:"In the loanable funds market, savers supply funds (upward sloping), borrowers (investors) demand funds (downward sloping), and equilibrium occurs where S = I — the real interest rate where the quantity of funds supplied equals the quantity demanded."},
+  {unit:4,q:"If the reserve requirement is 25%, and a new deposit of $4,000 is made, the maximum possible increase in the money supply is:",choices:["$4,000","$8,000","$16,000","$1,000"],correct:2,explain:"Money multiplier = 1/RR = 1/0.25 = 4. Maximum money creation = $4,000 × 4 = $16,000. This assumes banks lend all excess reserves and all lent money is re-deposited. The initial $4,000 is included in the total."},
+
+  // Unit 5
+  {unit:5,q:"'Crowding out' refers to which of the following?",choices:["The Fed increasing the money supply too aggressively","Government borrowing raising real interest rates and reducing private investment","Imports crowding out domestic production","Inflation reducing real wages"],correct:1,explain:"Crowding out occurs when the government runs a deficit and borrows funds from the loanable funds market. This increased demand for loanable funds raises the real interest rate, which discourages private investment. Fiscal policy is partially offset by this effect."},
+  {unit:5,q:"According to the Long-Run Phillips Curve (LRPC), which statement is correct?",choices:["There is a permanent trade-off between inflation and unemployment","The central bank can permanently lower unemployment by accepting higher inflation","In the long run, unemployment always returns to the natural rate","Higher inflation permanently reduces unemployment"],correct:2,explain:"The LRPC is vertical at the Natural Rate of Unemployment (NRU). In the long run, expansionary policy only raises prices — it doesn't permanently lower unemployment. Workers adjust wage expectations, and the economy returns to NRU, just at a higher price level."},
+  {unit:5,q:"Long-run economic growth is best represented in the AD-AS model by:",choices:["An increase in Aggregate Demand","An inward shift of the PPC","A rightward shift of the LRAS curve","A movement along the SRAS curve"],correct:2,explain:"Long-run economic growth increases potential GDP (Q*). This is shown as a rightward shift of the LRAS curve — the economy can now produce more at full employment. It's also shown as an outward shift of the PPC. Demand changes don't cause long-run growth."},
+
+  // Unit 6
+  {unit:6,q:"If the U.S. dollar appreciates relative to the euro, which of the following will most likely occur?",choices:["U.S. exports will increase and imports will fall","U.S. exports will fall and imports will increase","Both U.S. exports and imports will increase","The U.S. current account surplus will increase"],correct:1,explain:"When the dollar appreciates, U.S. goods become more expensive for foreigners → U.S. exports fall. Foreign goods become cheaper for Americans → U.S. imports increase. Net exports (X−M) fall, shifting AD left. This worsens the current account balance."},
+  {unit:6,q:"A country with a current account deficit must have:",choices:["A trade surplus","A capital/financial account surplus","A budget deficit","A declining exchange rate"],correct:1,explain:"The Balance of Payments must always balance: Current Account + Capital/Financial Account = 0. If a country has a current account deficit, it must be offset by a capital account surplus — the country is receiving more investment inflows than it's sending out."},
+  {unit:6,q:"If U.S. interest rates rise relative to foreign interest rates, what will likely happen to the U.S. dollar?",choices:["The dollar will depreciate because higher rates reduce investment","The dollar will appreciate because foreign investors demand more dollars","The dollar's value will be unaffected","The dollar will depreciate due to capital outflows"],correct:1,explain:"Higher U.S. interest rates attract foreign investors seeking better returns. To invest in U.S. assets, foreigners must buy U.S. dollars → demand for dollars increases → dollar appreciates. This is a key mechanism linking monetary policy to exchange rates."},
+  {unit:6,q:"Which of the following transactions would be recorded in the CURRENT account of the balance of payments?",choices:["A U.S. company buys a factory in Germany","A U.S. citizen purchases German government bonds","Germany exports automobiles to the U.S.","A German bank invests in U.S. Treasury bonds"],correct:2,explain:"The current account records trade in goods and services, income, and transfers. Exporting automobiles is a trade in goods → current account. The other options (buying factories, bonds, investing) are financial/capital flows → recorded in the capital/financial account."},
+];
+
+let mcqOrder = [...MCQ_DATA.keys()];
+let mcqCorrect = 0, mcqWrong = 0;
+let mcqFilter_val = 'all';
+
+function mcqShuffle() {
+  for (let i = mcqOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [mcqOrder[i], mcqOrder[j]] = [mcqOrder[j], mcqOrder[i]];
+  }
+  mcqReset(true);
+}
+
+function mcqReset(keepOrder=false) {
+  if (!keepOrder) mcqOrder = [...MCQ_DATA.keys()];
+  mcqCorrect = 0; mcqWrong = 0;
+  document.getElementById('mcq-correct').textContent = '0';
+  document.getElementById('mcq-wrong').textContent = '0';
+  document.getElementById('mcq-pct').textContent = '—';
+  mcqRender();
+}
+
+function mcqFilter(btn, val) {
+  document.querySelectorAll('.mcq-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  mcqFilter_val = val;
+  mcqReset(true);
+}
+
+function mcqRevealAll() {
+  document.querySelectorAll('.mcq-choice').forEach(btn => { btn.disabled = true; });
+  document.querySelectorAll('[data-mcq-idx]').forEach(item => {
+    const idx = parseInt(item.dataset.mcqIdx);
+    const q = MCQ_DATA[idx];
+    item.querySelectorAll('.mcq-choice').forEach((btn, i) => {
+      if (i === q.correct) btn.classList.add('reveal-correct');
+    });
+    item.querySelector('.mcq-explain').classList.add('visible');
+  });
+}
+
+function mcqUpdateScore() {
+  const answered = mcqCorrect + mcqWrong;
+  const filtered = mcqFilter_val === 'all' ? MCQ_DATA.length : MCQ_DATA.filter(q=>q.unit==mcqFilter_val).length;
+  document.getElementById('mcq-correct').textContent = mcqCorrect;
+  document.getElementById('mcq-wrong').textContent = mcqWrong;
+  document.getElementById('mcq-pct').textContent = answered > 0 ? Math.round(mcqCorrect/answered*100)+'%' : '—';
+  document.getElementById('mcq-done').textContent = answered;
+  document.getElementById('mcq-total').textContent = filtered;
+  document.getElementById('mcq-fill').style.width = filtered > 0 ? (answered/filtered*100)+'%' : '0%';
+}
+
+function mcqRender() {
+  const container = document.getElementById('mcq-container');
+  const unitColors = {1:'var(--u1)',2:'var(--u2)',3:'var(--u3)',4:'var(--u4)',5:'var(--u5)',6:'var(--u6)'};
+  const unitBgs = {1:'var(--u1-dim)',2:'var(--u2-dim)',3:'var(--u3-dim)',4:'var(--u4-dim)',5:'var(--u5-dim)',6:'var(--u6-dim)'};
+  const filtered = mcqOrder.filter(i => mcqFilter_val === 'all' || MCQ_DATA[i].unit == mcqFilter_val);
+  if (filtered.length === 0) { container.innerHTML = '<div class="mcq-empty">No questions for this filter.</div>'; return; }
+  document.getElementById('mcq-total').textContent = filtered.length;
+  container.innerHTML = filtered.map((origIdx, displayNum) => {
+    const q = MCQ_DATA[origIdx];
+    const col = unitColors[q.unit]; const bg = unitBgs[q.unit];
+    const choices = q.choices.map((c, i) => `<button class="mcq-choice" onclick="mcqAnswer(this,${origIdx},${i})">${String.fromCharCode(65+i)}. ${c}</button>`).join('');
+    return `<div class="mcq-item" data-mcq-idx="${origIdx}">
+      <div class="mcq-qnum">QUESTION ${displayNum+1} OF ${filtered.length}</div>
+      <div class="mcq-unit-tag" style="background:${bg};color:${col}">UNIT ${q.unit}</div>
+      <div class="mcq-qtext">${q.q}</div>
+      <div class="mcq-choices">${choices}</div>
+      <div class="mcq-explain">✅ <strong>Explanation:</strong> ${q.explain}</div>
+    </div>`;
+  }).join('');
+  mcqUpdateScore();
+}
+
+function mcqAnswer(btn, qIdx, choiceIdx) {
+  const item = btn.closest('.mcq-item');
+  if (item.classList.contains('answered')) return;
+  item.classList.add('answered');
+  const q = MCQ_DATA[qIdx];
+  item.querySelectorAll('.mcq-choice').forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add(choiceIdx === q.correct ? 'correct' : 'reveal-correct');
+    else if (i === choiceIdx) b.classList.add('wrong');
+  });
+  item.querySelector('.mcq-explain').classList.add('visible');
+  if (choiceIdx === q.correct) mcqCorrect++; else mcqWrong++;
+  mcqUpdateScore();
+}
+
+mcqRender();
+
+// ════════════════════════════════════════════════════════
+//  MODULE 2: GRAPH SHIFT SIMULATOR
+// ════════════════════════════════════════════════════════
+function simTab(id) {
+  document.querySelectorAll('.sim-tab').forEach((t,i) => t.classList.remove('active'));
+  document.querySelectorAll('.sim-panel').forEach(p => p.classList.remove('active'));
+  const tabs = document.querySelectorAll('.sim-tab');
+  const panels = ['adas','money','loanable','phillips'];
+  tabs.forEach((t,i) => { if (panels[i]===id) t.classList.add('active'); });
+  document.getElementById('sim-'+id).classList.add('active');
+  if (id==='money') { moneyReset(); drawMoney(); }
+  else if (id==='loanable') { loanableReset(); drawLoanable(); }
+  else if (id==='phillips') { phillipsReset(); drawPhillips(); }
+}
+
+// — AD-AS —
+let adasState = { ad:0, sras:0, lras:0 }; // offsets in pixels
+
+function adasReset() {
+  adasState = {ad:0, sras:0, lras:0};
+  document.getElementById('st-gdp').textContent='At Potential (Q*)'; document.getElementById('st-gdp').className='sim-state-val neutral';
+  document.getElementById('st-pl').textContent='Stable (P*)'; document.getElementById('st-pl').className='sim-state-val neutral';
+  document.getElementById('st-un').textContent='Natural Rate'; document.getElementById('st-un').className='sim-state-val neutral';
+  document.getElementById('st-gap').textContent='None'; document.getElementById('st-gap').className='sim-state-val neutral';
+  drawADAS();
+  document.getElementById('adas-followup').style.display='none';
+}
+
+function adasShift(curve, dir) {
+  const delta = dir==='right' ? 35 : -35;
+  if (curve==='ad') adasState.ad += delta;
+  else if (curve==='sras') adasState.sras += delta;
+  else if (curve==='lras') adasState.lras += delta;
+  adasState.ad = Math.max(-105,Math.min(105,adasState.ad));
+  adasState.sras = Math.max(-105,Math.min(105,adasState.sras));
+  adasState.lras = Math.max(-80,Math.min(80,adasState.lras));
+  drawADAS();
+  adasUpdateState(curve, dir);
+  showADASFollowup(curve, dir);
+}
+
+function adasUpdateState(curve, dir) {
+  const gdpEl = document.getElementById('st-gdp'), plEl = document.getElementById('st-pl');
+  const unEl = document.getElementById('st-un'), gapEl = document.getElementById('st-gap');
+  if (curve==='ad') {
+    if (dir==='right') {
+      gdpEl.textContent='↑ Rising (above Q*)'; gdpEl.className='sim-state-val up';
+      plEl.textContent='↑ Rising'; plEl.className='sim-state-val up';
+      unEl.textContent='↓ Falling (below NRU)'; unEl.className='sim-state-val up';
+      gapEl.textContent='Inflationary Gap'; gapEl.className='sim-state-val up';
+    } else {
+      gdpEl.textContent='↓ Falling (below Q*)'; gdpEl.className='sim-state-val down';
+      plEl.textContent='↓ Falling'; plEl.className='sim-state-val down';
+      unEl.textContent='↑ Rising (above NRU)'; unEl.className='sim-state-val down';
+      gapEl.textContent='Recessionary Gap'; gapEl.className='sim-state-val down';
+    }
+  } else if (curve==='sras') {
+    if (dir==='right') {
+      gdpEl.textContent='↑ Rising'; gdpEl.className='sim-state-val up';
+      plEl.textContent='↓ Falling'; plEl.className='sim-state-val up';
+      unEl.textContent='↓ Falling'; unEl.className='sim-state-val up';
+      gapEl.textContent='Positive (good news!)'; gapEl.className='sim-state-val up';
+    } else {
+      gdpEl.textContent='↓ Falling'; gdpEl.className='sim-state-val down';
+      plEl.textContent='↑ Rising'; plEl.className='sim-state-val down';
+      unEl.textContent='↑ Rising — STAGFLATION'; unEl.className='sim-state-val down';
+      gapEl.textContent='Recessionary + Inflationary!'; gapEl.className='sim-state-val down';
+    }
+  } else {
+    if (dir==='right') {
+      gdpEl.textContent='↑ Potential GDP ↑'; gdpEl.className='sim-state-val up';
+      plEl.textContent='Stable / ↓ Slightly'; plEl.className='sim-state-val up';
+      unEl.textContent='↓ NRU may fall'; unEl.className='sim-state-val up';
+      gapEl.textContent='Long-run growth!'; gapEl.className='sim-state-val up';
+    } else {
+      gdpEl.textContent='↓ Potential GDP ↓'; gdpEl.className='sim-state-val down';
+      plEl.textContent='↑ Rising'; plEl.className='sim-state-val down';
+      unEl.textContent='↑ NRU rises'; unEl.className='sim-state-val down';
+      gapEl.textContent='Capacity loss'; gapEl.className='sim-state-val down';
+    }
+  }
+}
+
+const ADAS_LONGRUN = {
+  ad_right: {
+    title:"📈 Long-Run Adjustment: AD Shifts Right (Inflationary Gap)",
+    steps:[
+      {icon:"1️⃣", text:"AD shifts right → Real GDP rises above Q* (potential GDP) → Inflationary gap opens."},
+      {icon:"2️⃣", text:"Economy is overheating → Unemployment falls BELOW the Natural Rate of Unemployment (NRU)."},
+      {icon:"3️⃣", text:"Workers demand higher wages (tight labor market) → Wages rise → Production costs for firms increase."},
+      {icon:"4️⃣", text:"Rising input costs cause SRAS to shift LEFT over time (SRAS₁ → SRAS₂)."},
+      {icon:"5️⃣", text:"Long-run result: SRAS shifts left until AD intersects SRAS at LRAS again (Q*), but at a HIGHER price level."},
+    ],
+    result:"Long-run equilibrium restored at Q* with higher price level. Real GDP returns to potential — only inflation remains.",
+    color:"#fbbf24"
+  },
+  ad_left: {
+    title:"📉 Long-Run Adjustment: AD Shifts Left (Recessionary Gap)",
+    steps:[
+      {icon:"1️⃣", text:"AD shifts left → Real GDP falls below Q* (potential GDP) → Recessionary gap opens."},
+      {icon:"2️⃣", text:"Unemployment rises ABOVE the Natural Rate → Labor market becomes slack."},
+      {icon:"3️⃣", text:"Workers accept lower wages (competition for jobs) → Wages fall → Production costs for firms decrease."},
+      {icon:"4️⃣", text:"Falling input costs cause SRAS to shift RIGHT over time (SRAS₁ → SRAS₂)."},
+      {icon:"5️⃣", text:"Long-run result: SRAS shifts right until AD intersects SRAS at LRAS again (Q*), but at a LOWER price level."},
+    ],
+    result:"Long-run equilibrium restored at Q* with lower price level. This process is SLOW — why policymakers often intervene instead of waiting.",
+    color:"#4f9cf9"
+  },
+  sras_left: {
+    title:"⚠️ Long-Run Adjustment: SRAS Shifts Left (Stagflation)",
+    steps:[
+      {icon:"1️⃣", text:"SRAS shifts left (e.g., oil price spike) → Price level rises AND Real GDP falls → Stagflation."},
+      {icon:"2️⃣", text:"Two policy options: (A) Wait for self-correction, or (B) Intervene — but each cures one problem and worsens the other."},
+      {icon:"3️⃣ A", text:"WAIT: If nothing is done, high unemployment → workers accept lower wages → SRAS shifts back right toward original position."},
+      {icon:"3️⃣ B", text:"EXPANSIONARY POLICY: Expand AD to restore GDP → worsens inflation at the new higher price level."},
+      {icon:"4️⃣", text:"Natural self-correction: Eventually wages fall, costs normalize, SRAS returns rightward → GDP recovers at original price level."},
+    ],
+    result:"Long-run self-correction returns to Q* via rightward SRAS shift, but can take years. Policymakers face a painful trade-off.",
+    color:"#f97316"
+  },
+  sras_right: {
+    title:"✅ Long-Run Adjustment: SRAS Shifts Right (Positive Supply Shock)",
+    steps:[
+      {icon:"1️⃣", text:"SRAS shifts right (e.g., lower oil prices, productivity gain) → Price level falls AND Real GDP rises."},
+      {icon:"2️⃣", text:"Unemployment falls below NRU → Inflationary pressure builds as labor market tightens."},
+      {icon:"3️⃣", text:"Workers demand higher wages → Input costs rise → SRAS begins shifting back leftward."},
+      {icon:"4️⃣", text:"Long-run result: Economy returns to Q* — temporary output gains are unwound by rising wages."},
+    ],
+    result:"Long-run equilibrium restored at Q* with lower price level (if shock is permanent) or original level (if temporary). Beneficial supply shocks shift LRAS right over time.",
+    color:"#34d399"
+  },
+  lras_right: {
+    title:"🚀 Long-Run Growth: LRAS Shifts Right (Economic Growth)",
+    steps:[
+      {icon:"1️⃣", text:"LRAS shifts right → Potential GDP (Q*) increases permanently. The economy can now produce more at full employment."},
+      {icon:"2️⃣", text:"Sources: Better technology, more capital (physical & human), more resources, improved institutions."},
+      {icon:"3️⃣", text:"AD must grow over time to match the new, larger potential GDP, otherwise a recessionary gap opens."},
+      {icon:"4️⃣", text:"If AD grows with LRAS: Stable prices, rising real GDP, sustained growth (ideal outcome)."},
+    ],
+    result:"New long-run equilibrium at higher Q* with same or lower price level. This is the goal of supply-side policies.",
+    color:"#a78bfa"
+  },
+  lras_left: {
+    title:"⬇️ Long-Run Decline: LRAS Shifts Left (Loss of Capacity)",
+    steps:[
+      {icon:"1️⃣", text:"LRAS shifts left → Potential GDP (Q*) decreases permanently. Economy's productive capacity shrinks."},
+      {icon:"2️⃣", text:"Causes: War/natural disaster destroying capital, emigration of skilled workers, resource depletion."},
+      {icon:"3️⃣", text:"If AD remains the same, an inflationary gap opens at the new lower Q*."},
+      {icon:"4️⃣", text:"Inflation pressures → SRAS adjusts → New equilibrium at lower GDP and higher price level."},
+    ],
+    result:"New equilibrium at lower Q* with higher price level. Supply-side policies (investment in capital, technology, education) needed to rebuild capacity.",
+    color:"#f472b6"
+  }
+};
+
+function showADASFollowup(curve, dir) {
+  const key = `${curve}_${dir}`;
+  const lr = ADAS_LONGRUN[key];
+  const container = document.getElementById('adas-followup');
+  if (!lr) { container.style.display='none'; return; }
+  container.style.display='block';
+  container.innerHTML = `
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;border-left:4px solid ${lr.color};">
+      <div style="font-size:13px;font-family:'DM Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;color:${lr.color};margin-bottom:10px">LONG-RUN SELF-CORRECTION</div>
+      <div style="font-weight:700;font-size:16px;margin-bottom:18px;color:var(--text)">${lr.title}</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+        ${lr.steps.map(s=>`<div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;background:var(--bg);border-radius:9px;border:1px solid var(--border)">
+          <span style="font-size:18px;flex-shrink:0">${s.icon}</span>
+          <span style="font-size:13.5px;line-height:1.6;color:var(--muted)">${s.text}</span>
+        </div>`).join('')}
+      </div>
+      <div style="padding:14px 18px;border-radius:10px;background:rgba(0,0,0,0.3);border-left:3px solid ${lr.color};font-size:13px;color:${lr.color};line-height:1.6">
+        <strong style="color:var(--text)">📍 Long-Run Result: </strong>${lr.result}
+      </div>
+    </div>`;
+}
+
+function drawADAS() {
+  const canvas = document.getElementById('canvas-adas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W=canvas.width, H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#0d0f14'; ctx.fillRect(0,0,W,H);
+  // Axes
+  ctx.strokeStyle='#444'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(60,20); ctx.lineTo(60,360); ctx.lineTo(480,360); ctx.stroke();
+  // Labels
+  ctx.fillStyle='#8891a8'; ctx.font='14px DM Sans,sans-serif'; ctx.textAlign='center';
+  ctx.fillText('Real GDP',270,385);
+  ctx.save(); ctx.translate(20,200); ctx.rotate(-Math.PI/2); ctx.fillText('Price Level',0,0); ctx.restore();
+  // LRAS (vertical)
+  const lrasX = 260 + adasState.lras;
+  ctx.strokeStyle='#f472b6'; ctx.lineWidth=2.5; ctx.setLineDash([8,4]);
+  ctx.beginPath(); ctx.moveTo(lrasX,30); ctx.lineTo(lrasX,360); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#f472b6'; ctx.font='bold 13px DM Sans,sans-serif'; ctx.textAlign='left';
+  ctx.fillText('LRAS',lrasX+5,45);
+  ctx.fillStyle='#f472b6'; ctx.font='12px DM Sans,sans-serif'; ctx.textAlign='center';
+  ctx.fillText('Q*',lrasX,375);
+
+  // SRAS bezier: starts at (80+so, 330), cp1=(190+so,230), cp2=(340+so,120), ends=(460+so,40)
+  const so = adasState.sras;
+  const srasP1={x:80+so,y:330},srasP2={x:190+so,y:220},srasP3={x:340+so,y:110},srasP4={x:460+so,y:35};
+  ctx.strokeStyle='#fbbf24'; ctx.lineWidth=2.5; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(srasP1.x,srasP1.y); ctx.bezierCurveTo(srasP2.x,srasP2.y,srasP3.x,srasP3.y,srasP4.x,srasP4.y); ctx.stroke();
+  ctx.fillStyle='#fbbf24'; ctx.font='bold 13px DM Sans,sans-serif'; ctx.textAlign='left';
+  ctx.fillText(adasState.sras!==0?'SRAS₁':'SRAS', Math.min(srasP4.x+2,465), Math.max(srasP4.y+12,45));
+
+  // AD bezier: starts at (80+ao, 40), cp1=(180+ao,103), cp2=(330+ao,233), ends=(460+ao,345)
+  // Control points chosen so AD ∩ SRAS lands exactly at LRAS (x=260) when ao=sras=0
+  const ao = adasState.ad;
+  const adP1={x:80+ao,y:40},adP2={x:180+ao,y:103},adP3={x:330+ao,y:233},adP4={x:460+ao,y:345};
+  ctx.strokeStyle='#4f9cf9'; ctx.lineWidth=2.5;
+  ctx.beginPath(); ctx.moveTo(adP1.x,adP1.y); ctx.bezierCurveTo(adP2.x,adP2.y,adP3.x,adP3.y,adP4.x,adP4.y); ctx.stroke();
+  ctx.fillStyle='#4f9cf9'; ctx.font='bold 13px DM Sans,sans-serif'; ctx.textAlign='left';
+  ctx.fillText(adasState.ad!==0?'AD₁':'AD', Math.min(adP4.x+2,465), adP4.y);
+
+  // --- Mathematically find AD-SRAS intersection ---
+  function bezierPt(p1,p2,p3,p4,t){
+    const mt=1-t;
+    return {
+      x:mt*mt*mt*p1.x+3*mt*mt*t*p2.x+3*mt*t*t*p3.x+t*t*t*p4.x,
+      y:mt*mt*mt*p1.y+3*mt*mt*t*p2.y+3*mt*t*t*p3.y+t*t*t*p4.y
+    };
+  }
+  // Find intersection by sampling both curves and finding the closest pair of points
+  let bestDist=Infinity, eqX=260, eqY=190;
+  for(let ta=0;ta<=1;ta+=0.005){
+    const adPt=bezierPt(adP1,adP2,adP3,adP4,ta);
+    for(let ts=0;ts<=1;ts+=0.005){
+      const sPt=bezierPt(srasP1,srasP2,srasP3,srasP4,ts);
+      const d=Math.sqrt((adPt.x-sPt.x)**2+(adPt.y-sPt.y)**2);
+      if(d<bestDist){
+        bestDist=d;
+        eqX=(adPt.x+sPt.x)/2;
+        eqY=(adPt.y+sPt.y)/2;
+      }
+    }
+  }
+  // Clamp to canvas
+  eqX=Math.max(70,Math.min(460,eqX));
+  eqY=Math.max(40,Math.min(340,eqY));
+
+  // Draw equilibrium
+  ctx.fillStyle='#34d399'; ctx.beginPath(); ctx.arc(eqX,eqY,7,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='rgba(52,211,153,0.4)'; ctx.lineWidth=1; ctx.setLineDash([4,3]);
+  ctx.beginPath(); ctx.moveTo(60,eqY); ctx.lineTo(eqX,eqY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(eqX,360); ctx.lineTo(eqX,eqY); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#34d399'; ctx.font='11px DM Mono,monospace'; ctx.textAlign='right';
+  ctx.fillText(adasState.ad===0&&adasState.sras===0?'P*':'P₁',55,eqY+4);
+  ctx.textAlign='center';
+  ctx.fillText(adasState.ad===0&&adasState.sras===0?'Q*':'Q₁',eqX,375);
+}
+
+// Init AD-AS on load
+window.addEventListener('load', () => { drawADAS(); drawMoney(); drawLoanable(); drawPhillips(); });
+
+// — MONEY MARKET —
+let moneyState = {ms:0, md:0};
+function moneyReset() { moneyState={ms:0,md:0}; document.getElementById('st-nir').textContent='Equilibrium (r*)'; document.getElementById('st-nir').className='sim-state-val neutral'; document.getElementById('st-inv').textContent='Stable'; document.getElementById('st-inv').className='sim-state-val neutral'; document.getElementById('st-adeff').textContent='No shift'; document.getElementById('st-adeff').className='sim-state-val neutral'; drawMoney(); document.getElementById('money-followup').style.display='none'; }
+function moneyShift(curve, dir) {
+  const d=dir==='right'?40:-40;
+  if(curve==='ms') moneyState.ms+=d; else moneyState.md+=d;
+  moneyState.ms=Math.max(-80,Math.min(80,moneyState.ms)); moneyState.md=Math.max(-80,Math.min(80,moneyState.md));
+  drawMoney();
+  const nirEl=document.getElementById('st-nir'), invEl=document.getElementById('st-inv'), adEl=document.getElementById('st-adeff');
+  if(curve==='ms' && dir==='right'){nirEl.textContent='↓ Falls (expansionary)';nirEl.className='sim-state-val up';invEl.textContent='↑ Rises';invEl.className='sim-state-val up';adEl.textContent='AD shifts RIGHT ↑';adEl.className='sim-state-val up';}
+  else if(curve==='ms' && dir==='left'){nirEl.textContent='↑ Rises (contractionary)';nirEl.className='sim-state-val down';invEl.textContent='↓ Falls';invEl.className='sim-state-val down';adEl.textContent='AD shifts LEFT ↓';adEl.className='sim-state-val down';}
+  else if(curve==='md' && dir==='right'){nirEl.textContent='↑ Rises';nirEl.className='sim-state-val down';invEl.textContent='↓ Falls';invEl.className='sim-state-val down';adEl.textContent='AD may shift LEFT ↓';adEl.className='sim-state-val down';}
+  else {nirEl.textContent='↓ Falls';nirEl.className='sim-state-val up';invEl.textContent='↑ Rises';invEl.className='sim-state-val up';adEl.textContent='AD may shift RIGHT ↑';adEl.className='sim-state-val up';}
+  // long-run effect panel
+  const MONEY_LONGRUN = {
+    ms_right:{title:"📉 Long-Run Effect: Expansionary Monetary Policy",steps:[
+      {icon:"1️⃣",text:"Fed buys bonds → Money supply (Ms) shifts right → Nominal interest rate falls."},
+      {icon:"2️⃣",text:"Lower interest rates → Investment spending rises → AD shifts right."},
+      {icon:"3️⃣",text:"Short run: Real GDP rises above potential (Q*), unemployment falls below NRU."},
+      {icon:"4️⃣",text:"Workers demand higher wages → SRAS shifts left → Price level rises further."},
+      {icon:"5️⃣",text:"Long run: Economy returns to Q*, but at a HIGHER price level. Only inflation persists — no permanent boost to real GDP."},
+    ],result:"Money is neutral in the long run. Expansionary MP only raises the price level permanently; real GDP returns to potential.",color:"#34d399"},
+    ms_left:{title:"📈 Long-Run Effect: Contractionary Monetary Policy",steps:[
+      {icon:"1️⃣",text:"Fed sells bonds → Money supply (Ms) shifts left → Nominal interest rate rises."},
+      {icon:"2️⃣",text:"Higher interest rates → Investment spending falls → AD shifts left."},
+      {icon:"3️⃣",text:"Short run: Real GDP falls below potential, unemployment rises above NRU (recessionary gap)."},
+      {icon:"4️⃣",text:"Wage/price deflation: Workers accept lower wages → SRAS shifts right over time."},
+      {icon:"5️⃣",text:"Long run: Economy returns to Q* at a LOWER price level. Inflation is cured, but the process is slow and painful."},
+    ],result:"Contractionary MP reduces inflation long-run, but risks causing a recession during the adjustment period.",color:"#fb7185"},
+    md_right:{title:"📊 Long-Run Effect: Increased Money Demand",steps:[
+      {icon:"1️⃣",text:"Money demand (Md) rises → With fixed Ms, nominal interest rate rises."},
+      {icon:"2️⃣",text:"Higher interest rates → Investment and spending fall → AD shifts left slightly."},
+      {icon:"3️⃣",text:"If the Fed does nothing (holds Ms fixed): Higher r*, lower investment, possible recessionary pressure."},
+      {icon:"4️⃣",text:"Fed may respond by buying bonds (↑ Ms) to offset the demand increase and keep rates stable."},
+    ],result:"Increased money demand alone raises interest rates. The Fed often accommodates by expanding Ms to stabilize rates.",color:"#a78bfa"},
+    md_left:{title:"📊 Long-Run Effect: Decreased Money Demand",steps:[
+      {icon:"1️⃣",text:"Money demand (Md) falls → With fixed Ms, nominal interest rate falls."},
+      {icon:"2️⃣",text:"Lower interest rates → Investment rises → AD shifts right."},
+      {icon:"3️⃣",text:"Inflationary pressure builds as AD rises above potential GDP."},
+      {icon:"4️⃣",text:"Fed may respond by selling bonds (↓ Ms) to offset and keep rates from falling too far."},
+    ],result:"Decreased money demand creates expansionary pressure. Central bank may tighten policy to prevent overheating.",color:"#fb923c"},
+  };
+  const mkey=`${curve}_${dir}`;const mlr=MONEY_LONGRUN[mkey];
+  const mc=document.getElementById('money-followup');
+  if(mlr){
+    mc.style.display='block';
+    mc.innerHTML=`<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;border-left:4px solid ${mlr.color}"><div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;color:${mlr.color};margin-bottom:8px">LONG-RUN EFFECT</div><div style="font-weight:700;font-size:15px;margin-bottom:14px;color:var(--text)">${mlr.title}</div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">${mlr.steps.map(s=>`<div style="display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)"><span style="font-size:16px;flex-shrink:0">${s.icon}</span><span style="font-size:13px;line-height:1.55;color:var(--muted)">${s.text}</span></div>`).join('')}</div><div style="padding:12px 16px;border-radius:9px;background:rgba(0,0,0,0.3);border-left:3px solid ${mlr.color};font-size:13px;color:${mlr.color};line-height:1.6"><strong style="color:var(--text)">📍 Result: </strong>${mlr.result}</div></div>`;
+  }
+}
+function drawMoney() {
+  const canvas=document.getElementById('canvas-money'); if(!canvas)return;
+  const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H); ctx.fillStyle='#0d0f14'; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#444'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(60,20); ctx.lineTo(60,360); ctx.lineTo(480,360); ctx.stroke();
+  ctx.fillStyle='#8891a8'; ctx.font='13px DM Sans,sans-serif'; ctx.textAlign='center';
+  ctx.fillText('Quantity of Money',270,385); ctx.save(); ctx.translate(22,200); ctx.rotate(-Math.PI/2); ctx.fillText('Nominal Interest Rate',0,0); ctx.restore();
+  // Ms (vertical)
+  const msX=270+moneyState.ms;
+  ctx.strokeStyle='#34d399'; ctx.lineWidth=2.5; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(msX,30); ctx.lineTo(msX,355); ctx.stroke();
+  ctx.fillStyle='#34d399'; ctx.font='bold 13px DM Sans,sans-serif'; ctx.textAlign='left';
+  ctx.fillText(moneyState.ms!==0?'Ms₁':'Ms',msX+5,45);
+  // Md (downward-sloping bezier): P1=(80+mdo,50) P2=(180+mdo,130) P3=(310+mdo,260) P4=(450+mdo,335)
+  const mdo=moneyState.md;
+  const mdP1={x:80+mdo,y:50},mdP2={x:180+mdo,y:130},mdP3={x:310+mdo,y:260},mdP4={x:450+mdo,y:335};
+  ctx.strokeStyle='#a78bfa'; ctx.lineWidth=2.5;
+  ctx.beginPath(); ctx.moveTo(mdP1.x,mdP1.y); ctx.bezierCurveTo(mdP2.x,mdP2.y,mdP3.x,mdP3.y,mdP4.x,mdP4.y); ctx.stroke();
+  ctx.fillStyle='#a78bfa'; ctx.font='bold 13px DM Sans,sans-serif';
+  ctx.fillText(moneyState.md!==0?'Md₁':'Md',Math.min(mdP4.x+2,465),mdP4.y);
+
+  // Math: find y on Md bezier at x=msX
+  // Bezier x(t) = (1-t)^3*x0 + 3(1-t)^2*t*x1 + 3(1-t)*t^2*x2 + t^3*x3
+  // Solve numerically for t given x=msX, then get y(t)
+  function bezierY_atX(p1,p2,p3,p4,targetX){
+    let lo=0,hi=1,t=0.5;
+    for(let i=0;i<50;i++){
+      t=(lo+hi)/2;
+      const mt=1-t;
+      const x=mt*mt*mt*p1.x+3*mt*mt*t*p2.x+3*mt*t*t*p3.x+t*t*t*p4.x;
+      if(x<targetX) lo=t; else hi=t;
+    }
+    const mt=1-t;
+    return mt*mt*mt*p1.y+3*mt*mt*t*p2.y+3*mt*t*t*p3.y+t*t*t*p4.y;
+  }
+  let eqY=200;
+  if(msX>=mdP1.x&&msX<=mdP4.x){
+    eqY=bezierY_atX(mdP1,mdP2,mdP3,mdP4,msX);
+  } else if(msX<mdP1.x){
+    eqY=mdP1.y-20;
+  } else {
+    eqY=mdP4.y+10;
+  }
+  eqY=Math.max(40,Math.min(340,eqY));
+
+  ctx.fillStyle='#34d399'; ctx.beginPath(); ctx.arc(msX,eqY,7,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='rgba(52,211,153,0.4)'; ctx.lineWidth=1; ctx.setLineDash([4,3]);
+  ctx.beginPath(); ctx.moveTo(60,eqY); ctx.lineTo(msX,eqY); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle='#34d399'; ctx.font='11px DM Mono,monospace'; ctx.textAlign='right';
+  ctx.fillText(moneyState.ms===0&&moneyState.md===0?'r*':(moneyState.ms>0||moneyState.md<0?'r↓':'r↑'),55,eqY+4);
+}
+
+// — LOANABLE FUNDS —
+let lState={s:0,d:0};
+function loanableReset(){lState={s:0,d:0};document.getElementById('st-rir').textContent='Equilibrium (r*)';document.getElementById('st-rir').className='sim-state-val neutral';document.getElementById('st-pi').textContent='Stable';document.getElementById('st-pi').className='sim-state-val neutral';document.getElementById('st-co').textContent='No';document.getElementById('st-co').className='sim-state-val neutral';drawLoanable();}
+function loanableShift(c,dir){const d=dir==='right'?40:-40;if(c==='s')lState.s+=d;else lState.d+=d;lState.s=Math.max(-80,Math.min(80,lState.s));lState.d=Math.max(-80,Math.min(80,lState.d));drawLoanable();
+  const rEl=document.getElementById('st-rir'),iEl=document.getElementById('st-pi'),cEl=document.getElementById('st-co');
+  if(c==='s'&&dir==='right'){rEl.textContent='↓ Falls';rEl.className='sim-state-val up';iEl.textContent='↑ Rises';iEl.className='sim-state-val up';cEl.textContent='No — supply increased';cEl.className='sim-state-val up';}
+  else if(c==='s'&&dir==='left'){rEl.textContent='↑ Rises';rEl.className='sim-state-val down';iEl.textContent='↓ Falls';iEl.className='sim-state-val down';cEl.textContent='Possible';cEl.className='sim-state-val down';}
+  else if(c==='d'&&dir==='right'){rEl.textContent='↑ Rises';rEl.className='sim-state-val down';iEl.textContent='↓ Falls (private)';iEl.className='sim-state-val down';cEl.textContent='YES — Crowding Out!';cEl.className='sim-state-val down';}
+  else{rEl.textContent='↓ Falls';rEl.className='sim-state-val up';iEl.textContent='↑ Rises';iEl.className='sim-state-val up';cEl.textContent='No';cEl.className='sim-state-val up';}
+}
+function drawLoanable(){
+  const canvas=document.getElementById('canvas-loanable');if(!canvas)return;
+  const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);ctx.fillStyle='#0d0f14';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#444';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(60,20);ctx.lineTo(60,360);ctx.lineTo(480,360);ctx.stroke();
+  ctx.fillStyle='#8891a8';ctx.font='13px DM Sans,sans-serif';ctx.textAlign='center';
+  ctx.fillText('Quantity of Loanable Funds',270,385);ctx.save();ctx.translate(22,200);ctx.rotate(-Math.PI/2);ctx.fillText('Real Interest Rate',0,0);ctx.restore();
+
+  // Supply bezier (upward): P1=(80+so,335) P2=(190+so,250) P3=(320+so,140) P4=(450+so,50)
+  const so=lState.s;
+  const sP1={x:80+so,y:335},sP2={x:190+so,y:250},sP3={x:320+so,y:140},sP4={x:450+so,y:50};
+  ctx.strokeStyle='#34d399';ctx.lineWidth=2.5;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(sP1.x,sP1.y);ctx.bezierCurveTo(sP2.x,sP2.y,sP3.x,sP3.y,sP4.x,sP4.y);ctx.stroke();
+  ctx.fillStyle='#34d399';ctx.font='bold 13px DM Sans,sans-serif';ctx.textAlign='left';
+  ctx.fillText(so!==0?'S₁':'S',Math.min(sP4.x+2,464),Math.max(sP4.y+14,55));
+
+  // Demand bezier (downward): P1=(80+dof,50) P2=(190+dof,150) P3=(320+dof,270) P4=(450+dof,340)
+  const dof=lState.d;
+  const dP1={x:80+dof,y:50},dP2={x:190+dof,y:150},dP3={x:320+dof,y:270},dP4={x:450+dof,y:340};
+  ctx.strokeStyle='#fb7185';ctx.lineWidth=2.5;
+  ctx.beginPath();ctx.moveTo(dP1.x,dP1.y);ctx.bezierCurveTo(dP2.x,dP2.y,dP3.x,dP3.y,dP4.x,dP4.y);ctx.stroke();
+  ctx.fillStyle='#fb7185';ctx.font='bold 13px DM Sans,sans-serif';
+  ctx.fillText(dof!==0?'D₁':'D',Math.min(dP4.x+2,464),dP4.y);
+
+  // Mathematically find S/D intersection via bezier sampling
+  function bezierPt(p1,p2,p3,p4,t){
+    const mt=1-t;
+    return {x:mt*mt*mt*p1.x+3*mt*mt*t*p2.x+3*mt*t*t*p3.x+t*t*t*p4.x,
+            y:mt*mt*mt*p1.y+3*mt*mt*t*p2.y+3*mt*t*t*p3.y+t*t*t*p4.y};
+  }
+  // For each x value, interpolate y on both curves and find where they're closest
+  let bestDist=Infinity,eqX=265,eqY=200;
+  for(let ts=0;ts<=1;ts+=0.005){
+    const sp=bezierPt(sP1,sP2,sP3,sP4,ts);
+    for(let td=0;td<=1;td+=0.005){
+      const dp=bezierPt(dP1,dP2,dP3,dP4,td);
+      const dist=Math.sqrt((sp.x-dp.x)**2+(sp.y-dp.y)**2);
+      if(dist<bestDist){bestDist=dist;eqX=(sp.x+dp.x)/2;eqY=(sp.y+dp.y)/2;}
+    }
+  }
+  eqX=Math.max(70,Math.min(460,eqX));
+  eqY=Math.max(40,Math.min(340,eqY));
+
+  ctx.fillStyle='#fbbf24';ctx.beginPath();ctx.arc(eqX,eqY,7,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='rgba(251,191,36,0.4)';ctx.lineWidth=1;ctx.setLineDash([4,3]);
+  ctx.beginPath();ctx.moveTo(60,eqY);ctx.lineTo(eqX,eqY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(eqX,360);ctx.lineTo(eqX,eqY);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#fbbf24';ctx.font='11px DM Mono,monospace';ctx.textAlign='right';
+  ctx.fillText(lState.s===0&&lState.d===0?'r*':(lState.s>0||lState.d<0?'r↓':'r↑'),55,eqY+4);
+}
+
+// — PHILLIPS CURVE —
+let phState={curveOff:0, pointOff:0};
+function phillipsReset(){phState={curveOff:0,pointOff:0};document.getElementById('st-pi2').textContent='2% (target)';document.getElementById('st-pi2').className='sim-state-val neutral';document.getElementById('st-u2').textContent='4.5% (NRU)';document.getElementById('st-u2').className='sim-state-val neutral';document.getElementById('st-cond').textContent='Long-run equilibrium';document.getElementById('st-cond').className='sim-state-val neutral';const pc=document.getElementById('phillips-followup');if(pc)pc.style.display='none';drawPhillips();}
+function phillipsMove(dir){phState.pointOff+=(dir==='exp'?-40:40);phState.pointOff=Math.max(-80,Math.min(80,phState.pointOff));drawPhillips();
+  const piEl=document.getElementById('st-pi2'),uEl=document.getElementById('st-u2'),cEl=document.getElementById('st-cond');
+  if(dir==='exp'){piEl.textContent='↑ Rising above target';piEl.className='sim-state-val down';uEl.textContent='↓ Below NRU';uEl.className='sim-state-val up';cEl.textContent='Inflationary gap (short-run)';cEl.className='sim-state-val down';}
+  else{piEl.textContent='↓ Falling below target';piEl.className='sim-state-val up';uEl.textContent='↑ Above NRU';uEl.className='sim-state-val down';cEl.textContent='Recessionary gap';cEl.className='sim-state-val down';}
+  const PHILLIPS_MOVE_LR={
+    exp:{title:"Long-Run Return from Inflationary Gap",steps:[
+      {icon:"1️⃣",text:"Economy moves up-left on SRPC → unemployment falls below NRU, inflation rises above 2%."},
+      {icon:"2️⃣",text:"Workers realize inflation is eroding real wages → demand higher nominal wages."},
+      {icon:"3️⃣",text:"Rising wages → SRAS shifts left → AD-AS equilibrium moves to higher price level."},
+      {icon:"4️⃣",text:"SRPC shifts RIGHT: at every unemployment level, expected inflation is higher."},
+      {icon:"5️⃣",text:"Long-run result: Economy returns to NRU on the LRPC, but at a HIGHER inflation rate."},
+    ],result:"Without intervention, inflationary gaps cause the SRPC to shift right over time. Only contractionary policy or patience brings inflation back down.",color:"#fbbf24"},
+    con:{title:"Long-Run Return from Recessionary Gap",steps:[
+      {icon:"1️⃣",text:"Economy moves down-right on SRPC → unemployment rises above NRU, inflation falls."},
+      {icon:"2️⃣",text:"High unemployment creates slack labor market → workers accept lower wages."},
+      {icon:"3️⃣",text:"Falling wages → SRAS shifts right → AD-AS equilibrium moves to lower price level."},
+      {icon:"4️⃣",text:"SRPC shifts LEFT: at every unemployment level, expected inflation is lower."},
+      {icon:"5️⃣",text:"Long-run result: Economy returns to NRU on the LRPC, but at a LOWER inflation rate."},
+    ],result:"Without policy intervention, recessionary gaps self-correct via falling wages, but this takes years and involves prolonged unemployment.",color:"#4f9cf9"},
+  };
+  const plr=PHILLIPS_MOVE_LR[dir];
+  const pc=document.getElementById('phillips-followup');
+  if(plr&&pc){pc.style.display='block';pc.innerHTML=`<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;border-left:4px solid ${plr.color}"><div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;color:${plr.color};margin-bottom:8px">LONG-RUN SELF-CORRECTION</div><div style="font-weight:700;font-size:15px;margin-bottom:14px;color:var(--text)">${plr.title}</div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">${plr.steps.map(s=>`<div style="display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)"><span style="font-size:16px;flex-shrink:0">${s.icon}</span><span style="font-size:13px;line-height:1.55;color:var(--muted)">${s.text}</span></div>`).join('')}</div><div style="padding:12px 16px;border-radius:9px;background:rgba(0,0,0,0.3);border-left:3px solid ${plr.color};font-size:13px;color:${plr.color};line-height:1.6"><strong style="color:var(--text)">📍 Result: </strong>${plr.result}</div></div>`;}
+}
+function phillipsShift(dir){phState.curveOff+=(dir==='right'?40:-40);phState.curveOff=Math.max(-80,Math.min(80,phState.curveOff));drawPhillips();
+  const piEl=document.getElementById('st-pi2'),uEl=document.getElementById('st-u2'),cEl=document.getElementById('st-cond');
+  if(dir==='right'){piEl.textContent='↑ Higher at every U level';piEl.className='sim-state-val down';uEl.textContent='↑ Higher — NRU shifted right';uEl.className='sim-state-val down';cEl.textContent='Stagflation — both rise!';cEl.className='sim-state-val down';}
+  else{piEl.textContent='↓ Lower at every U level';piEl.className='sim-state-val up';uEl.textContent='↓ Lower — NRU shifted left';uEl.className='sim-state-val up';cEl.textContent='Positive supply shock!';cEl.className='sim-state-val up';}
+  const PHILLIPS_SHIFT_LR={
+    right:{title:"Long-Run Adjustment: SRPC Shifts Right (Stagflation)",steps:[
+      {icon:"1️⃣",text:"Negative supply shock (e.g., oil spike) → SRAS shifts left → Both inflation ↑ AND unemployment ↑."},
+      {icon:"2️⃣",text:"SRPC shifts right: at every U level, inflation is now higher (stagflation zone)."},
+      {icon:"3️⃣",text:"Policymakers face a dilemma: fight inflation (↑ unemployment more) OR fight unemployment (↑ inflation more)."},
+      {icon:"4️⃣",text:"Option A — Wait: If the supply shock resolves (e.g., oil prices fall), SRAS shifts back right, SRPC returns left."},
+      {icon:"5️⃣",text:"Option B — Contractionary policy: brings inflation down but WORSENS unemployment temporarily."},
+    ],result:"SRPC shifts back left only if the supply shock resolves OR if expectations are anchored by credible central bank policy. Structural reforms can also improve the NRU.",color:"#fb923c"},
+    left:{title:"Long-Run Adjustment: SRPC Shifts Left (Positive Shock)",steps:[
+      {icon:"1️⃣",text:"Positive supply shock (e.g., tech boom, falling oil prices) → SRAS shifts right → Inflation ↓ AND unemployment ↓."},
+      {icon:"2️⃣",text:"SRPC shifts left: at every U level, inflation is now lower (the 'sweet spot')."},
+      {icon:"3️⃣",text:"Economy can sustain lower unemployment without triggering inflation — NRU may have fallen structurally."},
+      {icon:"4️⃣",text:"Long-run result: New, improved trade-off. LRPC may shift left too if structural unemployment falls."},
+    ],result:"Positive supply shocks improve the inflation-unemployment trade-off for everyone. Supply-side policies (education, deregulation, technology) aim to replicate this effect.",color:"#a3e635"},
+  };
+  const pslr=PHILLIPS_SHIFT_LR[dir];
+  const pc=document.getElementById('phillips-followup');
+  if(pslr&&pc){pc.style.display='block';pc.innerHTML=`<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;border-left:4px solid ${pslr.color}"><div style="font-size:11px;font-family:'DM Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;color:${pslr.color};margin-bottom:8px">LONG-RUN ADJUSTMENT</div><div style="font-weight:700;font-size:15px;margin-bottom:14px;color:var(--text)">${pslr.title}</div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">${pslr.steps.map(s=>`<div style="display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)"><span style="font-size:16px;flex-shrink:0">${s.icon}</span><span style="font-size:13px;line-height:1.55;color:var(--muted)">${s.text}</span></div>`).join('')}</div><div style="padding:12px 16px;border-radius:9px;background:rgba(0,0,0,0.3);border-left:3px solid ${pslr.color};font-size:13px;color:${pslr.color};line-height:1.6"><strong style="color:var(--text)">📍 Result: </strong>${pslr.result}</div></div>`;}
+}
+function drawPhillips(){
+  const canvas=document.getElementById('canvas-phillips');if(!canvas)return;
+  const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);ctx.fillStyle='#0d0f14';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#444';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(60,20);ctx.lineTo(60,360);ctx.lineTo(480,360);ctx.stroke();
+  ctx.fillStyle='#8891a8';ctx.font='13px DM Sans,sans-serif';ctx.textAlign='center';
+  ctx.fillText('Unemployment Rate',270,385);ctx.save();ctx.translate(22,200);ctx.rotate(-Math.PI/2);ctx.fillText('Inflation Rate',0,0);ctx.restore();
+
+  // Axis tick labels for realism
+  ctx.fillStyle='#555';ctx.font='10px DM Sans,sans-serif';ctx.textAlign='center';
+  // X-axis unemployment labels: 2%, 4%, 6%, 8%, 10%
+  const uVals=[2,4,6,8,10];
+  uVals.forEach(u=>{
+    const x=60+(u/12)*(420);
+    ctx.fillStyle='#555';ctx.fillText(u+'%',x,372);
+    ctx.strokeStyle='#2a2a2a';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,355);ctx.lineTo(x,360);ctx.stroke();
+  });
+  // Y-axis inflation labels: 2%, 4%, 6%, 8%
+  const piVals=[2,4,6,8];
+  piVals.forEach(pi=>{
+    const y=360-(pi/10)*(340);
+    ctx.fillStyle='#555';ctx.font='10px DM Sans,sans-serif';ctx.textAlign='right';ctx.fillText(pi+'%',55,y+4);
+    ctx.strokeStyle='#2a2a2a';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(60,y);ctx.lineTo(65,y);ctx.stroke();
+  });
+
+  // LRPC vertical at NRU (~4.5% unemployment)
+  const nruX=60+(4.5/12)*420+phState.curveOff;
+  ctx.strokeStyle='#f472b6';ctx.lineWidth=2;ctx.setLineDash([7,4]);
+  ctx.beginPath();ctx.moveTo(nruX,30);ctx.lineTo(nruX,355);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#f472b6';ctx.font='bold 12px DM Sans,sans-serif';ctx.textAlign='left';ctx.fillText('LRPC',nruX+4,45);
+  ctx.fillStyle='#f472b6';ctx.font='11px DM Sans,sans-serif';ctx.textAlign='center';ctx.fillText('NRU',nruX,374);
+
+  // SRPC — proper hyperbolic Phillips Curve shape
+  // Curve passes through roughly (NRU, π_target) = (4.5%, 2%)
+  // and slopes steeply up as U falls below NRU
+  // We parameterize: π = A / (U - U_min) + B  (hyperbola)
+  const co=phState.curveOff;
+  ctx.strokeStyle='#f97316';ctx.lineWidth=2.5;ctx.setLineDash([]);
+  ctx.beginPath();
+  // Draw as parametric: sweep U from ~1% to ~11%
+  const uMin=1.2; const uMax=11;
+  const A=8; // controls curvature steepness
+  const piAtNRU=2; // inflation at NRU
+  const nruPct=4.5+(co/420)*12; // NRU shifts with curve offset
+  const uShift = co/420*12; // horizontal shift in % terms
+  let first=true;
+  for(let u=uMin;u<=uMax;u+=0.05){
+    const pi = A/(u-uShift+0.5) - A/(uMax-uShift+0.5) + 0.3;
+    if(pi<-1||pi>12) continue;
+    const x=60+(u/12)*420;
+    const y=360-(pi/10)*340;
+    if(x<62||x>478||y<25||y>355) { first=!first||true; continue; }
+    if(first){ctx.moveTo(x,y);first=false;}else{ctx.lineTo(x,y);}
+  }
+  ctx.stroke();
+  ctx.fillStyle='#f97316';ctx.font='bold 13px DM Sans,sans-serif';ctx.textAlign='left';
+  const labelU=10+uShift;const labelPi=A/(labelU+0.5)-A/(uMax-uShift+0.5)+0.3;
+  const labelX=Math.min(60+(labelU/12)*420,460);const labelY=Math.max(30,360-(labelPi/10)*340);
+  ctx.fillText(co!==0?'SRPC₁':'SRPC',Math.min(labelX,455),Math.max(labelY+14,50));
+
+  // Equilibrium point on SRPC
+  const po=phState.pointOff;
+  // Point moves along the curve
+  const ptU=4.5+uShift+(po/420)*12;
+  const ptPi=A/(ptU+0.5)-A/(uMax-uShift+0.5)+0.3;
+  const ptX=60+(ptU/12)*420;
+  const ptY=360-(ptPi/10)*340;
+  const clampX=Math.max(70,Math.min(470,ptX));
+  const clampY=Math.max(35,Math.min(345,ptY));
+  ctx.fillStyle='#fbbf24';ctx.beginPath();ctx.arc(clampX,clampY,8,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='rgba(251,191,36,0.4)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+  ctx.beginPath();ctx.moveTo(60,clampY);ctx.lineTo(clampX,clampY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(clampX,360);ctx.lineTo(clampX,clampY);ctx.stroke();ctx.setLineDash([]);
+  // labels for the point
+  ctx.fillStyle='#fbbf24';ctx.font='10px DM Mono,monospace';ctx.textAlign='right';
+  const piLabel=Math.max(0,ptPi).toFixed(1);
+  ctx.fillText(piLabel+'%',55,clampY+4);
+  ctx.textAlign='center';
+  const uLabel=Math.max(0,ptU).toFixed(1);
+  ctx.fillText(uLabel+'%',clampX,350);
+}
+
+function checkGenFopt(btn,idx,correct,explain,containerId){
+  btn.closest('.sim-followup-opts').querySelectorAll('.sim-fopt').forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('correct');else if(b===btn)b.classList.add('wrong');});
+  const exp=document.createElement('div');exp.style.cssText='margin-top:10px;padding:11px 14px;border-radius:8px;background:rgba(163,230,53,0.07);border-left:3px solid #a3e635;font-size:13px;color:#86efac;line-height:1.6;';exp.innerHTML='✅ '+explain;btn.closest('.sim-followup').appendChild(exp);
+}
+
+// ════════════════════════════════════════════════════════
+//  MODULE 3: CAUSE AND EFFECT CHAINS
+// ════════════════════════════════════════════════════════
+const CHAINS = [
+  {title:"Fed Buys Bonds (Expansionary Monetary Policy)", scenario:"The Federal Reserve decides to combat a recession by purchasing government bonds on the open market. Trace the complete transmission mechanism step by step.",
+   color:"#34d399", steps:[
+    {label:"Fed Buys Bonds"},
+    {q:"What happens to bank reserves immediately?",opts:["Reserves decrease","Reserves increase","Reserves stay the same","Reserves are transferred abroad"],correct:1,ex:"When the Fed buys bonds, it pays with newly created money that flows into bank reserves. Bank reserves increase."},
+    {q:"With more reserves, banks can do what?",opts:["Raise reserve requirements","Reduce their lending","Make more loans — money supply expands","File for bankruptcy"],correct:2,ex:"Excess reserves allow banks to lend more. Each loan creates a new deposit, expanding the money supply through the money multiplier."},
+    {q:"As money supply increases, what happens to the nominal interest rate?",opts:["Interest rates rise","Interest rates fall","Interest rates are unchanged","The Fed directly sets the rate"],correct:1,ex:"In the Money Market: Ms shifts right → at any given interest rate there's more money than demanded → nominal interest rate falls."},
+    {q:"Lower interest rates cause investment to:",opts:["Decrease because borrowing is riskier","Increase because borrowing is cheaper","Remain constant — investment is interest-inelastic","Shift LRAS to the right immediately"],correct:1,ex:"Investment is inversely related to interest rates. When rates fall, borrowing to build factories, buy equipment, and expand becomes cheaper → investment rises."},
+    {q:"Rising investment causes Aggregate Demand to:",opts:["Shift left","Shift right","Move along the existing curve","Become perfectly inelastic"],correct:1,ex:"Investment (I) is a component of AD = C + I + G + (X−M). When I rises, AD shifts right → real GDP rises and the price level rises."},
+    {q:"The final result of this chain is:",opts:["Lower real GDP and lower prices","Higher real GDP and lower unemployment","Higher real GDP but much higher inflation","No change — monetary policy is ineffective"],correct:1,ex:"Expansionary monetary policy successfully closes a recessionary gap: real GDP rises toward potential, unemployment falls. Some inflation may result, which is an acceptable trade-off for closing the gap."}
+  ]},
+  {title:"Government Cuts Taxes (Expansionary Fiscal Policy)", scenario:"Congress passes a large personal income tax cut to stimulate a sluggish economy. Trace the multiplier effect through the economy.",
+   color:"#a78bfa", steps:[
+    {label:"Congress Cuts Personal Income Taxes"},
+    {q:"What is the immediate effect of an income tax cut on households?",opts:["Government spending increases","Disposable income increases","Savings rate decreases","Business investment automatically rises"],correct:1,ex:"A tax cut leaves households with more after-tax income — their disposable income rises. This is the first-round effect of fiscal stimulus."},
+    {q:"With higher disposable income, what do consumers mostly do? (Assume MPC = 0.8)",opts:["Save all of the extra income","Spend 80% and save 20%","Spend all of the extra income","Pay off debt only"],correct:1,ex:"The MPC (Marginal Propensity to Consume) = 0.8 means 80 cents of every extra dollar is spent. This drives the multiplier effect."},
+    {q:"The increased consumer spending causes Aggregate Demand to:",opts:["Shift left","Remain unchanged","Shift right","Move along the existing curve only"],correct:2,ex:"Consumer spending (C) is the largest component of AD. When C rises, AD shifts right."},
+    {q:"The spending multiplier with MPC=0.8 is:",opts:["0.8","5","4","1.25"],correct:1,ex:"Spending multiplier = 1/(1−MPC) = 1/(1−0.8) = 1/0.2 = 5. Each dollar of new spending creates $5 of GDP through repeated rounds of spending."},
+    {q:"However, the tax cut may cause 'crowding out' because:",opts:["Tax cuts always cause inflation","The government must borrow more, raising the real interest rate, reducing private investment","The Fed automatically raises rates to counter fiscal stimulus","Consumers never actually spend tax cuts"],correct:1,ex:"To fund a tax cut, the government usually borrows (issues bonds), increasing demand for loanable funds → real interest rates rise → private investment falls. This partially offsets the stimulus."}
+  ]},
+  {title:"Negative Supply Shock — Oil Price Spike", scenario:"A major oil-producing region experiences political upheaval, causing oil prices to triple globally. Trace the macroeconomic effects.",
+   color:"#f97316", steps:[
+    {label:"Global Oil Prices Triple"},
+    {q:"Rising oil prices are an example of what in production?",opts:["Increased productivity","Higher input/production costs","Improved technology","A positive demand shock"],correct:1,ex:"Oil is a key input for nearly all production (transportation, manufacturing, energy). Rising oil prices directly raise production costs for firms."},
+    {q:"Higher production costs cause SRAS to:",opts:["Shift right (increase)","Shift left (decrease)","Remain unchanged","Become vertical"],correct:1,ex:"When input costs rise, firms produce less at every price level. This shifts SRAS left — the supply-side of the AD-AS model deteriorates."},
+    {q:"A leftward SRAS shift, with unchanged AD, results in:",opts:["Lower price level and higher output","Lower output AND higher price level (stagflation)","Higher output and stable prices","A shift in LRAS to the right"],correct:1,ex:"This is stagflation — the worst macroeconomic outcome: real GDP falls (recession) while the price level rises (inflation) simultaneously. Unemployment rises while inflation rises."},
+    {q:"Why is stagflation particularly difficult for policymakers?",opts:["The Fed is not allowed to act during supply shocks","Any policy to cure one problem worsens the other","Both fiscal and monetary policy are illegal during stagflation","Supply shocks always fix themselves instantly"],correct:1,ex:"Contractionary policy to fight inflation makes the recession worse. Expansionary policy to fight unemployment makes inflation worse. There is no 'easy' policy fix for stagflation."},
+    {q:"On the Phillips Curve, a negative supply shock appears as:",opts:["A movement up and left along the SRPC","A movement down and right along the SRPC","A rightward shift of the entire SRPC","A leftward shift of the LRPC"],correct:2,ex:"A supply shock shifts the SRPC right — the entire curve moves, not a movement along it. This means at every level of unemployment, inflation is higher than before (stagflation)."}
+  ]},
+  {title:"U.S. Interest Rates Rise — Exchange Rate Effects", scenario:"The Federal Reserve raises the federal funds rate significantly to combat inflation. Trace the international economic effects.",
+   color:"#22d3ee", steps:[
+    {label:"Fed Raises Interest Rates"},
+    {q:"Higher U.S. interest rates attract:",opts:["American investors to invest abroad","Foreign investors seeking higher returns in the U.S.","U.S. exporters to expand overseas","No change in capital flows"],correct:1,ex:"Higher returns in the U.S. attract foreign capital — investors from around the world want to buy U.S. assets (bonds, savings accounts) to earn the higher rate of return."},
+    {q:"To invest in U.S. assets, foreign investors must first:",opts:["Buy euros","Sell U.S. dollars","Buy U.S. dollars","Withdraw from U.S. banks"],correct:2,ex:"To purchase U.S. assets, foreign investors need U.S. dollars. They sell their own currency and buy dollars in the foreign exchange market."},
+    {q:"Increased demand for U.S. dollars causes the dollar to:",opts:["Depreciate (fall in value)","Appreciate (rise in value)","Remain at a fixed rate","Be devalued by the government"],correct:1,ex:"Higher demand for dollars → dollar appreciates. It takes more foreign currency to buy one dollar. This is a key linkage between monetary policy and international trade."},
+    {q:"An appreciated dollar makes U.S. exports:",opts:["Cheaper for foreigners → exports rise","More expensive for foreigners → exports fall","Unchanged — exports are not affected by exchange rates","Subsidized by the government"],correct:1,ex:"When the dollar appreciates, U.S. goods are more expensive in foreign currency terms. A German car buyer must spend more euros to buy the same American product → U.S. exports fall."},
+    {q:"Falling exports and rising imports (due to the stronger dollar) cause:",opts:["Net exports to rise, shifting AD right","Net exports to fall, shifting AD left","No change in AD because trade is balanced","LRAS to shift right"],correct:1,ex:"Net exports (X−M) = exports − imports. Both fall and rise respectively → net exports fall → AD = C+I+G+(X−M) decreases → AD shifts left. This is how monetary policy has international spillover effects."}
+  ]}
+];
+
+let currentChain = 0, currentStep = 0, chainErrors = 0;
+
+function renderChainSelector() {
+  document.getElementById('chain-selector').innerHTML = CHAINS.map((c,i) => 
+    `<button class="chain-sel-btn ${i===currentChain?'active':''}" onclick="selectChain(${i})">${c.title.split('(')[0].trim()}</button>`
+  ).join('');
+}
+
+function selectChain(idx) {
+  currentChain=idx; currentStep=0; chainErrors=0;
+  document.querySelectorAll('.chain-sel-btn').forEach((b,i) => b.classList.toggle('active',i===idx));
+  renderChain();
+}
+
+function renderChain() {
+  const chain=CHAINS[currentChain];
+  const done=CHAINS[currentChain].steps.slice(0,currentStep+1);
+  let html=`<div class="chain-title" style="color:${chain.color}">${chain.title}</div>
+    <div class="chain-scenario">${chain.scenario}</div>
+    <div class="chain-steps-display">`;
+  done.forEach((s,i) => {
+    if(i===0){html+=`<div class="chain-step-done"><div class="chain-step-node" style="background:${chain.color};color:#0d0f14">🚀</div><div class="chain-step-text" style="color:${chain.color}">START: ${s.label}</div></div>`;}
+    else if(i<=currentStep){html+=`<div class="chain-arrow">↓</div><div class="chain-step-done"><div class="chain-step-node" style="background:${chain.color};color:#0d0f14">✓</div><div class="chain-step-text" style="color:${chain.color}">${s.opts[s.correct]}</div></div>`;}
+  });
+  html+='</div>';
+  if (currentStep < chain.steps.length-1) {
+    const step=chain.steps[currentStep+1];
+    html+=`<div class="chain-question"><div class="chain-q-label">→ WHAT HAPPENS NEXT?</div><div class="chain-q-text">${step.q}</div><div class="chain-choices">
+      ${step.opts.map((o,i)=>`<button class="chain-choice" onclick="chainAnswer(this,${i},${currentStep+1})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+    </div></div>`;
+  } else {
+    html+=`<div class="chain-complete"><div class="chain-complete-icon">🎯</div><div class="chain-complete-title">CHAIN COMPLETE!</div><div class="chain-complete-sub">You successfully traced the full economic chain. ${chainErrors===0?'Perfect score — no mistakes!':'Completed with '+chainErrors+' hint'+(chainErrors===1?'':'s')+'.'}</div><button class="chain-restart-btn" onclick="selectChain(currentChain)">↺ Repeat This Chain</button>&nbsp;&nbsp;<button class="chain-restart-btn" style="border-color:#22d3ee;color:#22d3ee;background:rgba(34,211,238,0.08)" onclick="selectChain((currentChain+1)%${CHAINS.length})">Next Chain →</button></div>`;
+  }
+  document.getElementById('chain-wrap').innerHTML=html;
+}
+
+function chainAnswer(btn,idx,stepIdx){
+  const step=CHAINS[currentChain].steps[stepIdx];
+  const choices=btn.closest('.chain-choices').querySelectorAll('.chain-choice');
+  choices.forEach(b=>b.disabled=true);
+  if(idx===step.correct){btn.classList.add('correct');const exp=document.createElement('div');exp.className='chain-explain';exp.textContent='✅ '+step.ex;btn.closest('.chain-question').appendChild(exp);setTimeout(()=>{currentStep=stepIdx;renderChain();},1200);}
+  else{btn.classList.add('wrong');chainErrors++;const exp=document.createElement('div');exp.className='chain-explain';exp.style.borderColor='#f87171';exp.style.color='#fca5a5';exp.textContent='❌ Not quite. '+step.ex+' Try the correct answer!';btn.closest('.chain-question').appendChild(exp);setTimeout(()=>{choices.forEach(b=>{b.disabled=false;b.classList.remove('wrong');});btn.closest('.chain-question').querySelector('.chain-explain').remove();},2000);}
+}
+
+renderChainSelector(); selectChain(0);
+
+// ════════════════════════════════════════════════════════
+//  MODULE 4: STIMULUS & DATA INTERPRETATION
+// ════════════════════════════════════════════════════════
+const STIM_QS = {
+  inflation:[
+    {q:"Based on the data, which type of inflation is MOST likely responsible for the spike in Year 3?",opts:["Demand-pull inflation caused by excessive government spending","Cost-push inflation driven primarily by energy price spikes","Wage-price spiral from labor market tightness","Monetary inflation from Federal Reserve bond buying"],correct:1,ex:"Energy prices spiked 41.6% in Year 3, which is a clear supply-side shock (cost-push). This pushes up production costs for all goods, explaining the broad CPI increase. The 'core CPI' also rose, suggesting some demand factors, but energy is the primary driver."},
+    {q:"'Core CPI' (excluding food and energy) is described as 'sticky.' What does this mean for the Fed?",opts:["The Fed should ignore core CPI when setting policy","Core CPI is more reliable for long-run policy decisions because food/energy are volatile","Sticky prices mean the economy is at full employment","Core CPI always rises faster than headline CPI"],correct:1,ex:"Core CPI strips out volatile food and energy prices to reveal underlying inflation trends. Because it's 'sticky' (slow to change), it's a better guide for monetary policy — the Fed doesn't want to overreact to temporary energy spikes."},
+    {q:"In Year 4, overall CPI fell from 8.0% to 3.4%, but shelter inflation remained at 6.2%. This would BEST be described as:",opts:["Deflation — prices are falling","Disinflation — inflation is slowing but still positive","Hyperinflation — prices are rising out of control","Stagflation — unemployment and inflation both rising"],correct:1,ex:"Disinflation = the rate of inflation is decreasing (falling from 8% to 3.4%), but prices are still rising. This is different from deflation (negative inflation) or stable prices. Shelter being 'sticky' at 6.2% is a real-world example of price stickiness."}
+  ],
+  unemployment:[
+    {q:"Based on the data, what type of unemployment was DECLINING across all four quarters?",opts:["Frictional unemployment","Structural unemployment","Cyclical unemployment","Seasonal unemployment"],correct:2,ex:"Cyclical unemployment fell from 1.9% → 0.0% as the economy recovered. This is unemployment directly tied to the business cycle — it rises in recessions and falls in expansions. Frictional and structural (natural rate components) remained relatively stable."},
+    {q:"By Q4, with cyclical unemployment at 0.0% and GDP growing at 3.8%, the economy is MOST LIKELY:",opts:["In a recession — GDP growth is too slow","At or near full employment — the output gap is closed","In a severe depression — all categories of unemployment are rising","In a recessionary gap — actual GDP is below potential"],correct:1,ex:"Cyclical unemployment = 0.0% means all remaining unemployment is natural (frictional + structural). With strong GDP growth, the economy is at or near full employment/potential GDP. The AD-AS model would show equilibrium at LRAS."},
+    {q:"If the unemployment rate fell further below the natural rate (e.g., to 2%), the economy would MOST LIKELY experience:",opts:["A recessionary gap and deflation","An inflationary gap and upward price pressure","A rightward shift of the LRAS curve","A period of economic recession"],correct:1,ex:"When unemployment falls BELOW the NRU, the economy is producing ABOVE potential GDP — an inflationary gap. Firms compete for scarce workers, wages rise, and inflation accelerates. The SRPC shows this as moving up-left along the curve."}
+  ],
+  fed:[
+    {q:"A 50 basis point rate increase indicates the Fed is conducting:",opts:["Expansionary monetary policy (buying bonds)","Contractionary monetary policy (selling bonds or raising rates)","Neutral monetary policy (no change)","Quantitative easing"],correct:1,ex:"Raising the federal funds rate by 50 basis points (0.50%) is contractionary monetary policy. Higher rates make borrowing more expensive → investment falls → AD shifts left → inflation slows. The Fed uses this to fight above-target inflation."},
+    {q:"The announcement mentions 'lags with which monetary policy affects economic activity.' This refers to:",opts:["The time it takes Congress to approve the rate change","The 6–18 month delay before rate changes fully impact inflation and GDP","The overnight nature of the federal funds rate","Automatic stabilizers built into the tax code"],correct:1,ex:"Monetary policy works through transmission mechanisms that take time: rate changes → investment decisions → production changes → price adjustments. The full effect typically takes 6–18 months, which is why the Fed must act pre-emptively."},
+    {q:"The FOMC's 'dual mandate' mentioned in the release refers to:",opts:["Setting fiscal AND monetary policy simultaneously","Targeting both maximum employment AND stable prices (2% inflation)","Managing both the federal funds rate and the discount rate","Regulating both commercial banks and investment banks"],correct:1,ex:"By law, the Federal Reserve has a dual mandate: (1) maximum employment and (2) stable prices (2% inflation target). When these goals conflict — like now, with low unemployment but high inflation — the Fed must balance them, typically prioritizing its inflation target."}
+  ],
+  gdp:[
+    {q:"In Year A (Recession), government spending INCREASED while the economy contracted. This is an example of:",opts:["Crowding out — government is replacing private spending","Automatic stabilizers — spending increases automatically during recessions","Supply-side economics — deregulation caused the recession","Contractionary fiscal policy worsening the recession"],correct:1,ex:"Government spending rising during a recession (4.1%) reflects automatic stabilizers: unemployment insurance, food assistance, and other programs automatically expand when the economy contracts. This is fiscal policy 'working as designed' without new legislation."},
+    {q:"Business investment fell -14.6% in Year A but rose +8.7% in Year C. This pattern BEST illustrates:",opts:["The money multiplier effect","The accelerator principle — investment is highly sensitive to GDP growth","Crowding out from government borrowing","The Fisher Effect linking real and nominal rates"],correct:1,ex:"Investment is the most volatile component of GDP. In recessions, firms cut investment dramatically (uncertainty, falling demand). In expansions, investment surges as confidence returns. This volatility of investment is what makes it a key driver of the business cycle."},
+    {q:"The data shows net exports WORSENING (more negative) during the expansion (Year C). Which BEST explains this?",opts:["The dollar depreciated, making imports more expensive","As GDP rose, Americans imported more goods, widening the trade deficit","Government tax cuts caused the trade deficit","Higher exports caused the trade deficit to worsen"],correct:1,ex:"As U.S. income rose during the expansion, Americans bought more goods — including imported goods. Higher domestic income → higher imports → net exports (X−M) fall. This is an automatic leakage from the circular flow that partially offsets domestic expansion."}
+  ]
+};
+
+function stimTab(id) {
+  document.querySelectorAll('.stim-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.stim-panel').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('stim-'+id).classList.add('active');
+  renderStimQs(id);
+}
+
+function renderStimQs(id) {
+  const qs=STIM_QS[id];
+  const container=document.getElementById(id+'-qs');
+  if(!container||!qs)return;
+  container.innerHTML=qs.map((q,qi)=>`
+    <div class="stim-q">
+      <div class="stim-q-num">ANALYSIS QUESTION ${qi+1}</div>
+      <div class="stim-q-text">${q.q}</div>
+      <div class="stim-q-choices">${q.opts.map((o,i)=>`<button class="stim-q-choice" onclick="stimAnswer(this,${i},${q.correct},'${q.ex.replace(/'/g,"\\'")}',${qi},'${id}')"> ${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div>
+      <div class="stim-q-explain" id="stim-exp-${id}-${qi}"></div>
+    </div>`).join('');
+}
+
+function stimAnswer(btn,idx,correct,explain,qi,sid){
+  btn.closest('.stim-q-choices').querySelectorAll('.stim-q-choice').forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('correct');else if(b===btn)b.classList.add('wrong');});
+  const expEl=document.getElementById(`stim-exp-${sid}-${qi}`);expEl.innerHTML=(idx===correct?'✅ ':'❌ ')+explain;expEl.classList.add('show');
+}
+
+// Init stimulus questions
+['inflation','unemployment','fed','gdp'].forEach(renderStimQs);
+
+// ════════════════════════════════════════════════════════
+//  MODULE 5: BANKING & MONEY CREATION SIMULATOR
+// ════════════════════════════════════════════════════════
+function bankUpdate() {
+  const dep=parseInt(document.getElementById('dep-slider').value);
+  const rr=parseInt(document.getElementById('rr-slider').value)/100;
+  document.getElementById('dep-label').textContent='$'+dep.toLocaleString();
+  document.getElementById('rr-label').textContent=Math.round(rr*100)+'%';
+  const mult=1/rr;
+  const maxMoney=dep*mult;
+  const newMoney=maxMoney-dep;
+  const reqRes=dep*rr;
+  const loans=dep-reqRes;
+  document.getElementById('mult-formula').textContent=`1 ÷ ${rr.toFixed(2)} = `;
+  document.getElementById('mult-val').textContent=mult.toFixed(1)+'×';
+  document.getElementById('money-created').textContent='$'+Math.round(maxMoney).toLocaleString();
+  document.getElementById('new-money').textContent='$'+Math.round(newMoney).toLocaleString();
+  document.getElementById('ta-dep').textContent=dep.toLocaleString();
+  document.getElementById('ta-rr').textContent=Math.round(rr*100)+'%';
+  document.getElementById('ta-req-res').textContent='$'+Math.round(reqRes).toLocaleString();
+  document.getElementById('ta-liab').textContent='$'+dep.toLocaleString();
+  document.getElementById('ta-loans').textContent='$'+Math.round(loans).toLocaleString();
+  document.getElementById('ta-total-a').textContent='$'+dep.toLocaleString();
+  document.getElementById('ta-total-l').textContent='$'+dep.toLocaleString();
+  // Chain rows
+  const rows=document.getElementById('bank-chain-rows');
+  let html='<div class="bcr"><span></span><span>Bank</span><span>Deposits</span><span>Reserves</span><span>New Loans</span></div>';
+  let d=dep;
+  for(let i=1;i<=6;i++){const r=d*rr,l=d-r;html+=`<div class="bcr"><span class="bcr-num">${i}</span><span class="bcr-bank">Bank ${i}</span><span class="bcr-dep">$${Math.round(d).toLocaleString()}</span><span class="bcr-res">$${Math.round(r).toLocaleString()}</span><span class="bcr-loan">$${Math.round(l).toLocaleString()}</span></div>`;d=l;}
+  rows.innerHTML=html;
+  document.getElementById('bank-chain-more').textContent=`...and so on through ${Math.ceil(Math.log(0.01)/Math.log(1-rr))} total banking rounds → Total money created: $${Math.round(maxMoney).toLocaleString()}`;
+}
+function setDeposit(v){document.getElementById('dep-slider').value=v;bankUpdate();}
+function setRR(v){document.getElementById('rr-slider').value=v;bankUpdate();}
+bankUpdate();
+</script>
 </body>
 </html>
